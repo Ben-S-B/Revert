@@ -64,7 +64,7 @@ namespace wServer
                 server.Start();
                 if(Settings.GetValue<bool>("broadcastNews", "false") && File.Exists("news.txt"))
                     new Thread(autoBroadcastNews).Start();
-                log.Info("Server initialized.");
+                log.Info("Server initialized (press ESC to terminate).");
 
                 uint key = 0;
                 while ((key = (uint)Console.ReadKey(true).Key) != (uint)ConsoleKey.Escape)

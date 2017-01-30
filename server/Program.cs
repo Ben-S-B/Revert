@@ -63,7 +63,7 @@ namespace server
                 listener.Start();
 
                 listener.BeginGetContext(ListenerCallback, null);
-                Logger.Info($"Listening at port {port}...");
+                Logger.Info($"Listening at port {port} (press ESC to terminate)...");
             }
             else
                 Logger.Error($"Port {port} is occupied. Can't start listening...\nPress ESC to exit.");
