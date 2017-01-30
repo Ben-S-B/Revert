@@ -68,10 +68,11 @@ namespace server.account
                 }
                 else
                 {
-                    Account acc = db.Register(Query["newGUID"], Query["newPassword"], false, Program.GameData);
+                    var verifyEmail = Program.Settings.GetValue<bool>("verifyEmail");
+                    Account acc = db.Register(Query["newGUID"], Query["newPassword"], false, Program.GameData, !verifyEmail);
                     if (acc != null)
                     {
-                        if (Program.Settings.GetValue<bool>("verifyEmail"))
+                        if (verifyEmail)
                         {
                             MailMessage message = new MailMessage();
                             message.To.Add(Query["newGuid"]);
@@ -92,6 +93,8 @@ namespace server.account
 
         public bool IsValidEmail(string strIn)
         {
+            //https://msdn.microsoft.com/en-us/library/01escwtf(v=vs.110).aspx
+
             var invalid = false;
             if (String.IsNullOrEmpty(strIn))
                 return false;
@@ -118,79 +121,18 @@ namespace server.account
             if (invalid)
                 return false;
 
-            // Return true if strIn is in valid e-mail format. 
-            if(Regex.IsMatch(strIn,
-                      @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
-                      @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$",
-                      RegexOptions.IgnoreCase))
+            // Return true if strIn is in valid e-mail format.
+            try
             {
-                string s = strIn.Remove(0, strIn.IndexOf('@') + 1);
-                string emailBody = s.Remove(s.IndexOf('.'));
-                switch (emailBody)
-                {
-                    case "mail":
-                    case "yandex":
-                    case "yahoo":
-                    case "aol":
-                    case "eclipso":
-                    case "maills":
-                    case "gmail":
-                    case "googlemail":
-                    case "firemail":
-                    case "maili":
-                    case "hotmail":
-                    case "emailn":
-                    case "outlook":
-                    case "rediffmail":
-                    case "oyoony":
-                    case "lycos":
-                    case "directbox":
-                    case "new-post":
-                    case "gmx":
-                    case "slucia":
-                    case "5x2":
-                    case "smart-mail":
-                    case "spl":
-                    case "t-online":
-                    case "compu-freemail":
-                    case "web":
-                    case "x-mail":
-                    case "k":
-                    case "mc-free":
-                    case "freenet":
-                    case "k-bg":
-                    case "overmail":
-                    case "anpa":
-                    case "freemailer":
-                    case "vcmail":
-                    case "mail4nature":
-                    case "uims":
-                    case "1vbb":
-                    case "uni":
-                    case "techmail":
-                    case "hushmail":
-                    case "freemail-24":
-                    case "guru":
-                    case "email":
-                    case "1email":
-                    case "canineworld":
-                    case "zelx":
-                    case "sify":
-                    case "softhome":
-                    case "kuekomail":
-                    case "mailde":
-                    case "mail-king":
-                    case "noxamail":
-                    case "h3c":
-                    case "arcor":
-                    case "logomail":
-                    case "ueberschuss":
-                    case "chattler":
-                    case "modellraketen":
-                        return true;
-                }
+                return Regex.IsMatch(strIn,
+                      @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+                      @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$",
+                      RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
             }
-            return false;
+            catch (RegexMatchTimeoutException)
+            {
+                return false;
+            }
         }
     }
 }
