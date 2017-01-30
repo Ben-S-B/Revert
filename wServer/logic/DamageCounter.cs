@@ -102,7 +102,7 @@ namespace wServer.logic
                     bool killer = (Parent ?? this).LastHitter == i.Item1;
                     if (i.Item1.EnemyKilled(
                         enemy,
-                        (int) playerXp,
+                        Math.Min(1, (int) playerXp),
                         killer) && !killer)
                         lvUps++;
                 }
