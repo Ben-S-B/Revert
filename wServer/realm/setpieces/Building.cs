@@ -12,7 +12,7 @@ namespace wServer.realm.setpieces
         private static readonly string Floor = "Brown Lines";
         private static readonly string Wall = "Wooden Wall";
 
-        private readonly Random rand = new Random();
+        private readonly Random rand = new RRandom();
 
         public int Size
         {

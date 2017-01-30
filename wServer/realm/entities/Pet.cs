@@ -19,7 +19,7 @@ namespace wServer.realm.entities
         public Pet(RealmManager manager, PetItem petData, Player playerOwner)
             : base(manager, (ushort)petData.Type, true, true)
         {
-            rand = new Random();
+            rand = new RRandom();
             PlayerOwner = playerOwner;
             Info = petData;
 

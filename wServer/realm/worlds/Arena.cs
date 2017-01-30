@@ -99,7 +99,7 @@ namespace wServer.realm.worlds
             try
             {
                 List<string> enems = new List<string>();
-                Random r = new Random();
+                Random r = new RRandom();
 
                 for (int i = 0; i < wave/3 + 1; i++)
                 {
@@ -113,7 +113,7 @@ namespace wServer.realm.worlds
                 {
                     enems.Add(WeakEnemies[r.Next(0, WeakEnemies.Length)]);
                 }
-                Random r2 = new Random();
+                Random r2 = new RRandom();
                 foreach (string i in enems)
                 {
                     ushort id = Manager.GameData.IdToObjectType[i];
@@ -133,12 +133,12 @@ namespace wServer.realm.worlds
         //private void SpawnBosses()
         //{
         //    List<string> enems = new List<string>();
-        //    Random r = new Random();
+        //    Random r = new RRandom();
         //    for (int i = 0; i < (1); i++)
         //    {
         //        enems.Add(Bosses[r.Next(0, Bosses.Length)]);
         //    }
-        //    Random r2 = new Random();
+        //    Random r2 = new RRandom();
         //    foreach (string i in enems)
         //    {
         //        ushort id = Manager.GameData.IdToObjectType[i];

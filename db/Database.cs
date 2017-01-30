@@ -280,7 +280,7 @@ AND characters.charId=death.chrId;";
             cmd.CommandText =
                 "INSERT INTO accounts(uuid, password, name, rank, namechosen, verified, guild, guildRank, guildFame, vaultCount, maxCharSlot, regTime, guest, banned, locked, ignored, gifts, isAgeVerified, authToken) VALUES(@uuid, SHA1(@password), @randomName, @rank, 0, @verified, 0, 0, 0, 1, 2, @regTime, @guest, 0, @empty, @empty, @empty, 1, @authToken);";
             cmd.Parameters.AddWithValue("@uuid", uuid);
-            cmd.Parameters.AddWithValue("@randomName", Names[new Random().Next(0, Names.Length)]);
+            cmd.Parameters.AddWithValue("@randomName", Names[new RRandom().Next(0, Names.Length)]);
             cmd.Parameters.AddWithValue("@password", password);
             cmd.Parameters.AddWithValue("@name", Names[(uint)uuid.GetHashCode() % Names.Length]);
             cmd.Parameters.AddWithValue("@guest", isGuest);
@@ -316,7 +316,7 @@ AND characters.charId=death.chrId;";
         public QuestItem GenerateDailyQuest(string accId, XmlData data, DateTime pst5pm)
         {
             if (accId == "0") return null;
-            Random rand = new Random();
+            Random rand = new RRandom();
             List<int> items = new List<int>(DailyQuestConstants.QuestsPerDay);
 
             List<Item> candidates = data.Items.Where(_ =>
@@ -361,7 +361,7 @@ AND characters.charId=death.chrId;";
         {
             var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             var builder = new StringBuilder();
-            var random = rand ?? new Random();
+            var random = rand ?? new RRandom();
             char ch;
             for (var i = 0; i < size; i++)
             {
@@ -1378,7 +1378,7 @@ VALUES(@accId, @petId, @objType, @skinName, @skin, @rarity, @maxLevel, @abilitie
         private string generateGiftCode(int blocks, int blockLength)
         {
             var builder = new StringBuilder();
-            var rand = new Random();
+            var rand = new RRandom();
             for (var i = 0; i < blocks; i++)
             {
                 builder.Append(GenerateRandomString(blockLength, rand));

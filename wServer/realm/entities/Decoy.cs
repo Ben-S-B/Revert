@@ -13,7 +13,7 @@ namespace wServer.realm.entities
 {
     internal class Decoy : StaticObject, IPlayer
     {
-        private static readonly Random rand = new Random();
+        private static readonly Random rand = new RRandom();
 
         private readonly int duration;
         private readonly Player player;

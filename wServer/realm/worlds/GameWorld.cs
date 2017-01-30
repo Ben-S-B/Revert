@@ -45,7 +45,7 @@ namespace wServer.realm.worlds
 
         public static GameWorld AutoName(int mapId, bool oryxPresent)
         {
-            string name = RealmManager.Realms[new Random().Next(RealmManager.Realms.Count)];
+            string name = RealmManager.Realms[new RRandom().Next(RealmManager.Realms.Count)];
             RealmManager.Realms.Remove(name);
             RealmManager.CurrentRealmNames.Add(name);
             return new GameWorld(mapId, name, oryxPresent);

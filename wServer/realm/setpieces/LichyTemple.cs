@@ -15,7 +15,7 @@ namespace wServer.realm.setpieces
         private static readonly string PillarA = "Blue Pillar";
         private static readonly string PillarB = "Broken Blue Pillar";
 
-        private readonly Random rand = new Random();
+        private readonly Random rand = new RRandom();
 
         public int Size
         {

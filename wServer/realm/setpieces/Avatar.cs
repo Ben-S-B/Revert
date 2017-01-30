@@ -12,7 +12,7 @@ namespace wServer.realm.setpieces
         private static readonly string[] Ground = {"shtrs Disaster Floor", "shtrs Shattered Floor"};
         private static readonly string PureEvil = "Pure Evil";
 
-        private readonly Random rand = new Random();
+        private readonly Random rand = new RRandom();
 
         private static byte[,] SetPiece //[Y, X]
         {

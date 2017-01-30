@@ -16,6 +16,12 @@ using System.Threading.Tasks;
 
 #endregion
 
+public class RRandom : Random
+{
+    public RRandom()
+        : base(Utils.RandomInt()) { }
+}
+
 public static class Utils
 {
     public const string BAD_WORDS = "(anus|ass|arse|arsehole|ass|asshat|assjabber|asspirate|assbag|assbandit|assbanger|assbite|assclown|asscock|asscracker|asses|assface|assfuck|assfucker|assgoblin|asshat|asshead|asshole|asshopper|assjacker|asslick|asslicker|assmonkey|assmunch|assmuncher|assnigger|asspirate|assshit|assshole)";
@@ -236,10 +242,16 @@ public static class Utils
 
     public static byte[] RandomBytes(int len)
     {
+        var ran = new RNGCryptoServiceProvider();
         var arr = new byte[len];
-        var r = new Random();
-        r.NextBytes(arr);
+        ran.GetBytes(arr);
         return arr;
+    }
+
+    public static int RandomInt()
+    {
+        var ran = RandomBytes(4);
+        return ran[0] | ran[1] << 8 | ran[2] << 16 | ran[3] << 23;
     }
 
     public static void ExecuteSync(this Task task)

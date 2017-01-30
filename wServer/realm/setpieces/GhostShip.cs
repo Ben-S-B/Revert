@@ -19,7 +19,7 @@ namespace wServer.realm.setpieces
         private static readonly string Water = "GhostWater";
         private static readonly string Sand = "Ghost Water Beach";
         
-        Random rand = new Random();
+        Random rand = new RRandom();
         public void RenderSetPiece(World world, IntPoint pos)
         {
             XmlData dat = world.Manager.GameData;

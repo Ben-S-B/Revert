@@ -18,12 +18,12 @@ namespace wServer.logic
         {
             get
             {
-                if (rand == null) rand = new Random();
+                if (rand == null) rand = new RRandom();
                 randomCount++;
                 if (randomCount >= 10)
                 {
                     randomCount = 0;
-                    rand = new Random();
+                    rand = new RRandom();
                 }
                 return rand;
             }

@@ -34,7 +34,7 @@ namespace db.JsonObjects
 
         public static GiftCode GenerateRandom(XmlData data, int minGold=0, int maxGold=10000, int minFame=0, int maxFame=10000, int minCharSlots=0, int maxCharSlots=4, int minVaultChests=0, int maxVaultChests=4, int maxItemStack=10, int minItemStack=1, int maxItemTypes=10, int minItemTypes=1)
         {
-            var rand = new Random();
+            var rand = new RRandom();
             var ret = new GiftCode();
 
             var types = rand.Next(minItemTypes, maxItemTypes);

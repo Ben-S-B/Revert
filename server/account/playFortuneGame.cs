@@ -33,7 +33,7 @@ namespace server.account
                     var cmd = db.CreateQuery();
                     cmd.CommandText = "SELECT * FROM thealchemist WHERE startTime <= now() AND endTime >= now() AND id=@gameId;";
                     cmd.Parameters.AddWithValue("@gameId", Query["gameId"]);
-                    Random rand = new Random();
+                    Random rand = new RRandom();
                     List<int> gifts = new List<int>();
 
                     using (var rdr = cmd.ExecuteReader())

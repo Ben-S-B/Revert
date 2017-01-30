@@ -548,7 +548,7 @@ namespace wServer.realm.entities.player
         public override void Init(World owner)
         {
             WorldInstance = owner;
-            var rand = new Random();
+            var rand = new RRandom();
             int x, y;
             do
             {

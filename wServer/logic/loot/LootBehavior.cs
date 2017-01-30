@@ -163,7 +163,7 @@ namespace wServer.logic.loot
                     ShowBags(rand, i.Value, i.Key);
         }
 
-        static Random rand = new Random();
+        static Random rand = new RRandom();
         protected override void BehaveCore(BehaviorCondition cond, RealmTime? time, object state)
         {
             if (cond == BehaviorCondition.OnDeath)

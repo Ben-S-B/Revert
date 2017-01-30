@@ -197,7 +197,7 @@ namespace wServer.realm.entities.player
                 ExperienceGoal = GetExpGoal(Level);
                 foreach (var i in Manager.GameData.ObjectTypeToElement[ObjectType].Elements("LevelIncrease"))
                 {
-                    var rand = new Random();
+                    var rand = new RRandom();
                     var min = int.Parse(i.Attribute("min").Value);
                     var max = int.Parse(i.Attribute("max").Value) + 1;
                     var xElement = Manager.GameData.ObjectTypeToElement[ObjectType].Element(i.Value);

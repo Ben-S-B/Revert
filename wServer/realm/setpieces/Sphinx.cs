@@ -35,7 +35,7 @@ namespace wServer.realm.setpieces
         private static readonly string Central = "Sand Tile";
         private static readonly string Pillar = "Tomb Wall";
 
-        private readonly Random rand = new Random();
+        private readonly Random rand = new RRandom();
 
         public int Size
         {

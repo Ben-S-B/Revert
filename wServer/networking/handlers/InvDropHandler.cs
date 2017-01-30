@@ -14,7 +14,7 @@ namespace wServer.networking.handlers
 {
     internal class InvDropHandler : PacketHandlerBase<InvDropPacket>
     {
-        private readonly Random invRand = new Random();
+        private readonly Random invRand = new RRandom();
 
         public override PacketID ID
         {

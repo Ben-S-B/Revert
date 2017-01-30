@@ -14,7 +14,7 @@ namespace wServer.realm.setpieces
         private static readonly string Floor = "Rock";
         private static readonly string Wall = "Grey Wall";
 
-        private readonly Random rand = new Random();
+        private readonly Random rand = new RRandom();
 
         static Tower()
         {

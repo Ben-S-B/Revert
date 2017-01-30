@@ -167,7 +167,7 @@ namespace terrain
             while (true)
             {
                 int seed = Environment.TickCount;
-                seed = new Random().Next(8, 16777216); // 16777216 = 8^8
+                seed = new RRandom().Next(8, 16777216); // 16777216 = 8^8
                 DateTime asdf = DateTime.Now;
                 seed = asdf.Millisecond + asdf.Minute + asdf.Hour + asdf.Year;
                 Random rand = new Random(seed);

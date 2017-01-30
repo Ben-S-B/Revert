@@ -114,7 +114,7 @@ namespace wServer
                 do
                 {
                     ChatManager cm = new ChatManager(manager);
-                    cm.News(news[new Random().Next(news.Length)]);
+                    cm.News(news[new RRandom().Next(news.Length)]);
                     Thread.Sleep(300000); //5 min
                 }
                 while (true);

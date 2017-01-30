@@ -36,7 +36,7 @@ namespace wServer.realm.entities.merchant
             if (owner != null)
                 Owner = owner;
 
-            if (Random == null) Random = new Random();
+            if (Random == null) Random = new RRandom();
             if (AddedTypes == null) AddedTypes = new List<KeyValuePair<string, int>>();
             if(owner != null) ResolveMType();
         }

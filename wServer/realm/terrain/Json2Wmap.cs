@@ -111,7 +111,7 @@ namespace wServer.realm.terrain
             json_dat obj = JsonConvert.DeserializeObject<json_dat>(json);
             byte[] dat = ZlibStream.UncompressBuffer(obj.data);
 
-            Random rand = new Random();
+            Random rand = new RRandom();
 
             Dictionary<ushort, TerrainTile> tileDict = new Dictionary<ushort, TerrainTile>();
             for (int i = 0; i < obj.dict.Length; i++)

@@ -10,7 +10,7 @@ namespace wServer.realm.setpieces
 {
     internal class TempleB : Temple
     {
-        private readonly Random rand = new Random();
+        private readonly Random rand = new RRandom();
 
         public override int Size
         {

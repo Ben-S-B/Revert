@@ -630,7 +630,7 @@ namespace wServer.realm.entities.player
 
                         if (enemies.Count > 0)
                         {
-                            Random rand = new Random();
+                            Random rand = new RRandom();
                             for (int i = 0; i < 5; i++)
                             {
                                 Enemy a = enemies[rand.Next(0, enemies.Count)];

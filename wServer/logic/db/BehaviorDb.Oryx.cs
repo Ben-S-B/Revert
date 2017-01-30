@@ -136,9 +136,9 @@ namespace wServer.logic
                         new TossObject("Ring Element", 9, 336, 320000),
                         new TossObject("Ring Element", 9, 360, 320000),
                         new ConditionalEffect(ConditionEffectIndex.Invulnerable),
-                        //new Grenade(radius: 4, damage: 150, fixedAngle: new Random().Next(0, 359), range: 5, coolDown: 2000),
-                        //new Grenade(radius: 4, damage: 150, fixedAngle: new Random().Next(0, 359), range: 5, coolDown: 2000),
-                        //new Grenade(radius: 4, damage: 150, fixedAngle: new Random().Next(0, 359), range: 5, coolDown: 2000),
+                        //new Grenade(radius: 4, damage: 150, fixedAngle: new RRandom().Next(0, 359), range: 5, coolDown: 2000),
+                        //new Grenade(radius: 4, damage: 150, fixedAngle: new RRandom().Next(0, 359), range: 5, coolDown: 2000),
+                        //new Grenade(radius: 4, damage: 150, fixedAngle: new RRandom().Next(0, 359), range: 5, coolDown: 2000),
                         new TimedTransition(25000, "artifacts")
                         ),
                     new State("artifacts",

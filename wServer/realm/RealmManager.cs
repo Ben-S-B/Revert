@@ -119,7 +119,7 @@ namespace wServer.realm
             GuildHalls = new ConcurrentDictionary<string, GuildHall>();
             LastWorld = new ConcurrentDictionary<string, World>();
             vaults = new ConcurrentDictionary<string, Vault>();
-            Random = new Random();
+            Random = new RRandom();
         }
 
         public BehaviorDb Behaviors { get; private set; }

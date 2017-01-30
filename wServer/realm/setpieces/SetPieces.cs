@@ -84,7 +84,7 @@ namespace wServer.realm.setpieces
             Wmap map = world.Map;
             int w = map.Width, h = map.Height;
 
-            Random rand = new Random();
+            Random rand = new RRandom();
             HashSet<Rect> rects = new HashSet<Rect>();
             foreach (Tuple<ISetPiece, int, int, WmapTerrain[]> dat in setPieces)
             {

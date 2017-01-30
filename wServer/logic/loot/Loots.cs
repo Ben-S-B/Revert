@@ -27,7 +27,7 @@ namespace wServer.logic.loot
 
     public class Loot : List<ILootDef>
     {
-        private static readonly Random rand = new Random();
+        private static readonly Random rand = new RRandom();
 
         public Loot(params ILootDef[] lootDefs) //For independent loots(e.g. chests)
         {

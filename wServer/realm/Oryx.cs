@@ -34,7 +34,7 @@ namespace wServer.realm
             Tuple.Create("Cube God", (ISetPiece) new CubeGod()),
         };
 
-        private readonly Random rand = new Random();
+        private readonly Random rand = new RRandom();
         private GameWorld world;
         public bool ClosingStarted = false;
         public bool RealmClosed = false;

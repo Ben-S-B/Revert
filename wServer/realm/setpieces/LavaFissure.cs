@@ -30,7 +30,7 @@ namespace wServer.realm.setpieces
             new TierLoot(1, ItemType.Potion, 0.5)
             );
 
-        private readonly Random rand = new Random();
+        private readonly Random rand = new RRandom();
 
         public int Size
         {

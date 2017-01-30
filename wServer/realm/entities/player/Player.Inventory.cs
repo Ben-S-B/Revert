@@ -8,7 +8,7 @@ namespace wServer.realm.entities.player
 {
     public partial class Player
     {
-        private readonly Random invRand = new Random();
+        private readonly Random invRand = new RRandom();
 
         private int[] setTypeBoosts;
 

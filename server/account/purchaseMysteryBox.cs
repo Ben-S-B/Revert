@@ -20,7 +20,7 @@ namespace server.account
 
         protected override void HandleRequest()
         {
-            rand = Query["ignore"] != null ? new Random(int.Parse(Query["ignore"])) : new Random();
+            rand = Query["ignore"] != null ? new Random(int.Parse(Query["ignore"])) : new RRandom();
 
             using (Database db = new Database())
             {

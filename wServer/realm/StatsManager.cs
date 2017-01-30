@@ -213,7 +213,7 @@ namespace wServer.realm
 
             public static uint obf1()
             {
-                return (uint) Math.Round(new Random().NextDouble()*(uint.MaxValue - 1) + 1);
+                return (uint) Math.Round(new RRandom().NextDouble()*(uint.MaxValue - 1) + 1);
             }
 
             public uint obf2()

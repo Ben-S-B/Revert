@@ -17,7 +17,7 @@ namespace wServer.realm
 
         private readonly RealmManager manager;
         private readonly Nexus nexus;
-        private readonly Random rand = new Random();
+        private readonly Random rand = new RRandom();
         private readonly object worldLock = new object();
         public Dictionary<World, Portal> portals = new Dictionary<World, Portal>();
 
