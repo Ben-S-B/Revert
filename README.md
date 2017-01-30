@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/imjseh4u5rninkwl?svg=true)](https://ci.appveyor.com/project/mrexodia/fabiano-swagger-of-doom)
+
 ## What is this?
 
 This is a private server for [Realm of the Mad God](http://www.realmofthemadgod.com) forked from [here](https://github.com/ossimc82/fabiano-swagger-of-doom). It is mostly a cleanup of the original source and the focus lies on getting a server running as quickly and easily as possible.
