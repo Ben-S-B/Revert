@@ -1,6 +1,6 @@
-#NOTE: I am not gunna update this server to 27.5 because the build (1439425927) is still bugged as hell.
+## What is this?
 
-#Build Status: [![Build status](https://img.shields.io/appveyor/ci/ossimc82/fabiano-swagger-of-doom/master.svg)](https://ci.appveyor.com/project/ossimc82/fabiano-swagger-of-doom)
+This is a private server for [Realm of the Mad God](http://www.realmofthemadgod.com) forked from [here](https://github.com/ossimc82/fabiano-swagger-of-doom). It is mostly a cleanup of the original source and the focus lies on getting a server running as quickly and easily as possible.
 
 ## How to run this on my own server?
 
@@ -29,7 +29,9 @@ Alternatively you can use [RABCDAsm](https://github.com/CyberShadow/RABCDAsm) to
 
 **Do not contact me for help, I have none to offer.**
 
-##Additional License information
+## Additional License information
+
+This software is licensed under [AGPLv3](https://choosealicense.com/licenses/agpl-3.0). In practice this means that **you have to distribute the source code of your application, even if you are only hosting the server and not distributing server binaries**.
 
 You are free to use this source as long as u credit this guys:
 
