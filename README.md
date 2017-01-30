@@ -8,8 +8,8 @@ This is a private server for [Realm of the Mad God](http://www.realmofthemadgod.
 
 **Notice:** This guide is based on http://www.mpgh.net/forum/showthread.php?t=959037
 
-1. Compile `server.sln` with Visual Studio 2015 or higher in `Release` mode.
-2. Install [XAMPP](https://www.apachefriends.org) and configure a user/database called `rotmgprod`, import `db\rotmgprod.sql` to get the right tables. **Do not allow outside connections if you don't set a password!**
+1. Compile `server.sln` with Visual Studio 2015 or higher in `Release` mode. If you don't have Visual Studio, you can get the latest binaries [here](https://ci.appveyor.com/project/mrexodia/fabiano-swagger-of-doom/build/artifacts).
+2. Install [XAMPP](https://www.apachefriends.org) and configure a user/database called `rotmgprod` and import `db\rotmgprod.sql` to get the right tables. **Do not allow outside connections if you don't set a password!**
 3. Add the following line to `%systemroot%\System32\drivers\etc\hosts` on the server: `127.0.0.1 c453.pw`
 3. Start `bin\Release\server.exe` as Administrator (required for access to port 80)
 4. Start `bin\Release\wServer.exe`
