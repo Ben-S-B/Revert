@@ -1353,6 +1353,13 @@ VALUES(@accId, @petId, @objType, @skinName, @skin, @rarity, @maxLevel, @abilitie
             cmd.ExecuteScalar();
         }
 
+        public void UnlockAllAccounts()
+        {
+            MySqlCommand cmd = CreateQuery();
+            cmd.CommandText = "UPDATE accounts SET accountInUse=0;";
+            cmd.ExecuteScalar();
+        }
+
         public string GenerateGiftcode(string contents, string accId)
         {
             var code = generateGiftCode(5, 5);

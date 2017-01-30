@@ -306,16 +306,12 @@ namespace wServer.realm
             log.Info("Stopping Realm Manager...");
 
             Terminating = true;
-            List<Client> saveAccountUnlock = new List<Client>();
+            //Disconnect all clients
             foreach (Client c in Clients.Values)
-            {
-                saveAccountUnlock.Add(c);
                 c.Disconnect();
-            }
-            //To prevent a buggy Account in use.
-            using(var db = new Database())
-                foreach (Client c in saveAccountUnlock)
-                    db.UnlockAccount(c.Account);
+            //Unlock all accounts since they cannot be in use after termination
+            using (var db = new Database())
+                db.UnlockAllAccounts();
 
             GameData.Dispose();
             logic.Join();
