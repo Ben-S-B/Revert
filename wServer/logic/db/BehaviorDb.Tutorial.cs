@@ -55,7 +55,7 @@ namespace wServer.logic
                 new State(
                     new Wander(0.3)
                     ),
-                new ItemLoot("Minor Health Potion", 1)
+                new ItemLoot("Health Potion", 1)
             )
             .Init("Kitchen Guard",
                 new State(
@@ -74,8 +74,8 @@ namespace wServer.logic
                         ),
                     new Shoot(3)
                     ),
-                new ItemLoot("Minor Health Potion", 0.1),
-                new ItemLoot("Minor Magic Potion", 0.1)
+                new ItemLoot("Health Potion", 0.1),
+                new ItemLoot("Magic Potion", 0.1)
             )
             .Init("Bonegrind the Butcher",
                 new State(
@@ -117,8 +117,8 @@ namespace wServer.logic
                             )
                         )
                     ),
-                new ItemLoot("Minor Health Potion", 1),
-                new ItemLoot("Minor Magic Potion", 1)
+                new ItemLoot("Health Potion", 1),
+                new ItemLoot("Magic Potion", 1)
             )
             ;
     }
