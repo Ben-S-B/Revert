@@ -152,6 +152,18 @@ namespace wServer.networking.handlers
 
                     if (world.IsLimbo)
                         world = world.GetInstance(client);
+
+                    if(world == null || world.Map == null)
+                    {
+                        client.SendPacket(new FailurePacket
+                        {
+                            ErrorId = 1,
+                            ErrorDescription = "Invalid world."
+                        });
+                        client.Disconnect();
+                        return;
+                    }
+
                     client.Random = new wRandom(world.Seed);
                     client.TargetWorld = world.Id;
                     client.SendPacket(new MapInfoPacket
