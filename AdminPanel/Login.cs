@@ -39,11 +39,17 @@ namespace AdminPanel
                 var webRequest = WebRequest.CreateHttp(String.Format("http://127.0.0.1/account/verify?guid={0}&password={1}", emailTextBox.Text, passwordTextBox.Text));
                 using (StreamReader rdr = new StreamReader(webRequest.GetResponse().GetResponseStream()))
                 {
-                    var xml = rdr.ReadToEnd();
+                    var xml = rdr.ReadToEnd().Trim();
                     if (xml == "<Error>WebChangePasswordDialog.passwordError</Error>")
                     {
                         DialogResult = DialogResult.None;
                         MetroMessageBox.Show(this, "\n\nAccount credentials not valid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    else if(xml.StartsWith("<Error>") && xml.EndsWith("</Error>"))
+                    {
+                        DialogResult = DialogResult.None;
+                        MetroMessageBox.Show(this, xml.Substring(7, xml.Length - 7 - 8), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     var serializer = new XmlSerializer(typeof(Account));
