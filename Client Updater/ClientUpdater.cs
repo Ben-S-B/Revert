@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Client_Updater
 {
@@ -165,36 +166,24 @@ namespace wServer
             }
             if (!String.IsNullOrWhiteSpace(targetFile))
             {
-                using (StreamReader rdr = new StreamReader(targetFile))
+                var x = new Regex("trait const QName\\(PackageNamespace\\(\"\"\\), \"([^\\\"]+)\"\\) slotid (\\d+) type QName\\(PackageNamespace\\(\"\"\\), \"int\"\\) value Integer\\((\\d+)\\) end");
+                var lines = File.ReadAllLines(targetFile);
+                foreach(var line in lines)
                 {
-                    bool started = false;
-                    while (true)
-                    {
-                        if (rdr.EndOfStream) break;
-                        string line = rdr.ReadLine();
-                        if (line.Contains("FAILURE") && line.Contains("trait const"))
-                            started = true;
-
-                        if (started)
-                        {
-                            if (line.Contains("trait const"))
-                            {
-                                int slotId = int.Parse((line[line.IndexOf("slotid") + "slotid".Length + 1].ToString() + line[line.IndexOf("slotid") + "slotid".Length + 2].ToString()).Trim());
-                                int packetId = int.Parse((line[line.IndexOf("Integer(") + "Integer(".Length].ToString() + line[line.IndexOf("Integer(") + "Integer(".Length + 1].ToString()).Trim().Replace(")", String.Empty));
-                                string s = line.Replace(" trait const QName(PackageNamespace(\"\", \"#0\"), \"", String.Empty);
-                                string name = s.Remove(s.IndexOf("\") slotid"));
-
-                                PacketIdCollection.Add(slotId, new KeyValuePair<string, int>(name, packetId));
-                            }
-                        }
-                    }
+                    var match = x.Match(line);
+                    if (!match.Success)
+                        continue;
+                    var name = match.Groups[1].ToString();
+                    var slotId = int.Parse(match.Groups[2].ToString());
+                    var packetId = int.Parse(match.Groups[3].ToString());
+                    PacketIdCollection.Add(slotId, new KeyValuePair<string, int>(name, packetId));
                 }
 
                 foreach (var i in PacketIdCollection)
                 {
                     string realName = GetPacketIdName(i.Key) ?? i.Value.Key;
 
-                    packetIdText += Environment.NewLine;
+                    packetIdText += "\n";
                     packetIdText += "       " + realName + " = " + i.Value.Value + ", //slotid: " + i.Key;
                 }
                 packetIdText = packetIdText.Remove(packetIdText.LastIndexOf(','), 1);
@@ -294,7 +283,8 @@ namespace wServer
 
             p = RunProcess(Environment.CurrentDirectory + @"\rabcdasm\abcreplace.exe", $"client.swf {client1.Last()} {client1}\\{client1}.main.abc");
             p = RunProcess(Environment.CurrentDirectory + @"\rabcdasm\swflzmacompress.exe", "client.swf");
-            File.Move(Environment.CurrentDirectory + "\\client.swf", Environment.CurrentDirectory + "\\client-release.swf");
+            File.Copy(Environment.CurrentDirectory + "\\client.swf", Environment.CurrentDirectory + "\\client-release.swf", true);
+            File.Delete(Environment.CurrentDirectory + "\\client.swf");
 
             /*var op = Process.Start(Environment.CurrentDirectory + "\\Orape.exe");
             MessageBox.Show("Now Build your client with orape and press ok after orape is done to compress the client");
@@ -538,14 +528,20 @@ namespace wServer
             string equipentsetsxml = "<EquipmentSets>";
             string objectxml = "<Objects>";
 
+            var x = new HashSet<string>();
+
             foreach (var bin in bins)
             {
+                var text = File.ReadAllText(bin);
+                if (x.Contains(text))
+                    continue;
+                x.Add(text);
                 try
                 {
                     unsafe
                     {
                         int type;
-                        string xml = CreateXML(File.ReadAllText(bin), &type);
+                        string xml = CreateXML(text, &type);
 
                         switch (type)
                         {
