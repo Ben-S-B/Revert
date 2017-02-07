@@ -21,7 +21,8 @@ namespace server.app
             {"es", File.ReadAllText("app/Languages/es.txt")},
             {"fr", File.ReadAllText("app/Languages/fr.txt")},
             {"it", File.ReadAllText("app/Languages/it.txt")},
-            {"ru", File.ReadAllText("app/Languages/ru.txt")}
+            {"ru", File.ReadAllText("app/Languages/ru.txt")},
+            {"tr", File.ReadAllText("app/Languages/tr.txt")}
         };
 
         protected override void HandleRequest()
@@ -30,10 +31,10 @@ namespace server.app
             byte[] buf;
             if (Query.AllKeys.Length > 0)
                 if (!languages.TryGetValue(Query["languageType"], out lang))
-                    buf = Encoding.ASCII.GetBytes("<Error>Invalid langauge type.</Error>");
+                    buf = Encoding.ASCII.GetBytes("<Error>Invalid language type.</Error>");
                 else buf = Encoding.ASCII.GetBytes(lang);
             else
-                buf = Encoding.ASCII.GetBytes("<Error>Invalid langauge type.</Error>");
+                buf = Encoding.ASCII.GetBytes("<Error>Invalid language type.</Error>");
             Context.Response.OutputStream.Write(buf, 0, buf.Length);
         }
     }
