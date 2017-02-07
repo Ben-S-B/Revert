@@ -28,75 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.localhost_btn = new MetroFramework.Controls.MetroButton();
-            this.c453_btn = new MetroFramework.Controls.MetroButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new MetroFramework.Controls.MetroButton();
-            this.metroCheckBox1 = new MetroFramework.Controls.MetroCheckBox();
+            this.labelStatus = new System.Windows.Forms.Label();
+            this.checkBoxDownloadClient = new MetroFramework.Controls.MetroCheckBox();
+            this.textBoxDomain = new System.Windows.Forms.TextBox();
+            this.labelDomain = new System.Windows.Forms.Label();
+            this.buttonUpdateAndMod = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
-            // localhost_btn
+            // labelStatus
             // 
-            this.localhost_btn.Location = new System.Drawing.Point(14, 63);
-            this.localhost_btn.Name = "localhost_btn";
-            this.localhost_btn.Size = new System.Drawing.Size(127, 23);
-            this.localhost_btn.TabIndex = 0;
-            this.localhost_btn.Text = "Localhost";
-            this.localhost_btn.UseSelectable = true;
-            this.localhost_btn.Click += new System.EventHandler(this.localhost_btn_Click);
+            this.labelStatus.AutoSize = true;
+            this.labelStatus.Location = new System.Drawing.Point(11, 138);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(88, 13);
+            this.labelStatus.TabIndex = 2;
+            this.labelStatus.Text = "Status: Waiting...";
             // 
-            // c453_btn
+            // checkBoxDownloadClient
             // 
-            this.c453_btn.Location = new System.Drawing.Point(147, 63);
-            this.c453_btn.Name = "c453_btn";
-            this.c453_btn.Size = new System.Drawing.Size(127, 23);
-            this.c453_btn.TabIndex = 1;
-            this.c453_btn.Text = "c453.pw";
-            this.c453_btn.UseSelectable = true;
-            this.c453_btn.Click += new System.EventHandler(this.c453_btn_Click);
+            this.checkBoxDownloadClient.AutoSize = true;
+            this.checkBoxDownloadClient.Checked = true;
+            this.checkBoxDownloadClient.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxDownloadClient.Location = new System.Drawing.Point(14, 120);
+            this.checkBoxDownloadClient.Name = "checkBoxDownloadClient";
+            this.checkBoxDownloadClient.Size = new System.Drawing.Size(136, 15);
+            this.checkBoxDownloadClient.TabIndex = 4;
+            this.checkBoxDownloadClient.Text = "Download new Client";
+            this.checkBoxDownloadClient.UseSelectable = true;
             // 
-            // label1
+            // textBoxDomain
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 138);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Status: Waiting...";
+            this.textBoxDomain.Location = new System.Drawing.Point(63, 57);
+            this.textBoxDomain.Name = "textBoxDomain";
+            this.textBoxDomain.Size = new System.Drawing.Size(213, 20);
+            this.textBoxDomain.TabIndex = 0;
+            this.textBoxDomain.Text = "c453.pw";
             // 
-            // button1
+            // labelDomain
             // 
-            this.button1.Location = new System.Drawing.Point(14, 90);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(260, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "KrazyShank";
-            this.button1.UseSelectable = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.labelDomain.AutoSize = true;
+            this.labelDomain.Location = new System.Drawing.Point(11, 60);
+            this.labelDomain.Name = "labelDomain";
+            this.labelDomain.Size = new System.Drawing.Size(46, 13);
+            this.labelDomain.TabIndex = 6;
+            this.labelDomain.Text = "Domain:";
             // 
-            // metroCheckBox1
+            // buttonUpdateAndMod
             // 
-            this.metroCheckBox1.AutoSize = true;
-            this.metroCheckBox1.Checked = true;
-            this.metroCheckBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.metroCheckBox1.Location = new System.Drawing.Point(14, 120);
-            this.metroCheckBox1.Name = "metroCheckBox1";
-            this.metroCheckBox1.Size = new System.Drawing.Size(136, 15);
-            this.metroCheckBox1.TabIndex = 4;
-            this.metroCheckBox1.Text = "Download new Client";
-            this.metroCheckBox1.UseSelectable = true;
+            this.buttonUpdateAndMod.Location = new System.Drawing.Point(14, 83);
+            this.buttonUpdateAndMod.Name = "buttonUpdateAndMod";
+            this.buttonUpdateAndMod.Size = new System.Drawing.Size(262, 23);
+            this.buttonUpdateAndMod.TabIndex = 1;
+            this.buttonUpdateAndMod.Text = "Update && Mod Client";
+            this.buttonUpdateAndMod.UseSelectable = true;
+            this.buttonUpdateAndMod.Click += new System.EventHandler(this.c453_btn_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(299, 161);
-            this.Controls.Add(this.metroCheckBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.c453_btn);
-            this.Controls.Add(this.localhost_btn);
+            this.ClientSize = new System.Drawing.Size(294, 161);
+            this.Controls.Add(this.labelDomain);
+            this.Controls.Add(this.textBoxDomain);
+            this.Controls.Add(this.checkBoxDownloadClient);
+            this.Controls.Add(this.labelStatus);
+            this.Controls.Add(this.buttonUpdateAndMod);
             this.Name = "Form1";
+            this.Resizable = false;
             this.Text = "Client Updater";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -104,12 +102,11 @@
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroButton localhost_btn;
-        private MetroFramework.Controls.MetroButton c453_btn;
-        private System.Windows.Forms.Label label1;
-        private MetroFramework.Controls.MetroButton button1;
-        private MetroFramework.Controls.MetroCheckBox metroCheckBox1;
+        private System.Windows.Forms.Label labelStatus;
+        private MetroFramework.Controls.MetroCheckBox checkBoxDownloadClient;
+        private System.Windows.Forms.TextBox textBoxDomain;
+        private System.Windows.Forms.Label labelDomain;
+        private MetroFramework.Controls.MetroButton buttonUpdateAndMod;
     }
 }
 

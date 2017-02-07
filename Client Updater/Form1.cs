@@ -13,24 +13,23 @@ namespace Client_Updater
         public Form1()
         {
             InitializeComponent();
+            Load += (s, e) => Activate();
         }
 
-        private void localhost_btn_Click(object sender, EventArgs e) => runUpdater("127.0.0.1");
-        private void c453_btn_Click(object sender, EventArgs e) => runUpdater("25.108.113.162");
-        private void button1_Click(object sender, EventArgs e) => runUpdater("71.231.167.96");
+        private void c453_btn_Click(object sender, EventArgs e) => runUpdater(textBoxDomain.Text);
 
         private void runUpdater(string ip)
         {
-            if (metroCheckBox1.Checked)
+            if (checkBoxDownloadClient.Checked)
             {
-                label1.Text = "Status: Downloading latest client...";
-                label1.Update();
+                labelStatus.Text = "Status: Downloading latest client...";
+                labelStatus.Update();
                 var webCli = new WebClient();
                 var clientVersion = Encoding.UTF8.GetString(webCli.DownloadData("https://realmofthemadgodhrd.appspot.com/version.txt"));
                 webCli.DownloadFile($"https://realmofthemadgodhrd.appspot.com/AssembleeGameClient{clientVersion}.swf", "client.swf");
             }
 
-            updater = new ClientUpdater(ip, label1);
+            updater = new ClientUpdater(ip, labelStatus);
             updater.UpdateClient();
         }
     }
