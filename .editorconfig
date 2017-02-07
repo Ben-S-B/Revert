@@ -1,0 +1,11 @@
+; Top-most EditorConfig file
+root = true
+
+; Linux-style newlines
+[*]
+end_of_line = LF
+
+; Tab indentation
+[*.{cs}]
+indent_style = space
+tab_width = 4
