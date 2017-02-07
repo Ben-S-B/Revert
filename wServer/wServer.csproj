@@ -288,6 +288,7 @@
     <Compile Include="networking\cliPackets\InvDropPacket.cs" />
     <Compile Include="networking\cliPackets\InvSwapPacket.cs" />
     <Compile Include="networking\cliPackets\JoinGuildPacket.cs" />
+    <Compile Include="networking\cliPackets\KeyInfoRequestPacket.cs" />
     <Compile Include="networking\cliPackets\LeaveArenaPacket.cs" />
     <Compile Include="networking\cliPackets\LoadPacket.cs" />
     <Compile Include="networking\cliPackets\MovePacket.cs" />
@@ -352,6 +353,7 @@
     <Compile Include="networking\NetworkHandler.cs" />
     <Compile Include="networking\svrPackets\ArenaDeathPacket.cs" />
     <Compile Include="networking\svrPackets\ArenaNextWavePacket.cs" />
+    <Compile Include="networking\svrPackets\KeyInfoResponsePacket.cs" />
     <Compile Include="networking\svrPackets\PasswordPromtPacket.cs" />
     <Compile Include="networking\svrPackets\QuestFetchResponsePacket.cs" />
     <Compile Include="networking\svrPackets\QuestRedeemResponsePacket.cs" />
