@@ -25,6 +25,7 @@ namespace wServer.networking.handlers
         {
             if (Client.SERVER_VERSION != packet.BuildVersion)
             {
+                log.Info($"Invalid client version {packet.BuildVersion}!");
                 client.SendPacket(new FailurePacket
                 {
                     ErrorId = 0,

@@ -11,11 +11,12 @@
         public int KeyTime { get; set; }
         public byte[] Key { get; set; }
         public byte[] MapInfo { get; set; }
-        public string obf1 { get; set; }
-        public string obf2 { get; set; }
-        public string obf3 { get; set; }
-        public string obf4 { get; set; }
-        public string obf5 { get; set; }
+        public string EntryTag { get; set; }
+        public string GameNet { get; set; }
+        public string GameNetUserId { get; set; }
+        public string PlayPlatform { get; set; }
+        public string PlatformToken { get; set; }
+        public string UserToken { get; set; }
 
         public override PacketID ID
         {
@@ -35,15 +36,16 @@
             rdr.ReadInt32();
             Password = RSA.Instance.Decrypt(rdr.ReadUTF());
             randomint1 = rdr.ReadInt32();
-            Secret = rdr.ReadUTF();
+            Secret = RSA.Instance.Decrypt(rdr.ReadUTF());
             KeyTime = rdr.ReadInt32();
             Key = rdr.ReadBytes(rdr.ReadInt16());
             MapInfo = rdr.ReadBytes(rdr.ReadInt32());
-            obf1 = rdr.ReadUTF();
-            obf2 = rdr.ReadUTF();
-            obf3 = rdr.ReadUTF();
-            obf4 = rdr.ReadUTF();
-            obf5 = rdr.ReadUTF();
+            EntryTag = rdr.ReadUTF();
+            GameNet = rdr.ReadUTF();
+            GameNetUserId = rdr.ReadUTF();
+            PlayPlatform = rdr.ReadUTF();
+            PlatformToken = rdr.ReadUTF();
+            UserToken = rdr.ReadUTF();
         }
 
         protected override void Write(Client psr, NWriter wtr)
@@ -54,17 +56,18 @@
             wtr.WriteUTF(RSA.Instance.Encrypt(GUID));
             wtr.Write(randomint1);
             wtr.WriteUTF(RSA.Instance.Encrypt(Password));
-            wtr.WriteUTF(Secret);
+            wtr.WriteUTF(RSA.Instance.Encrypt(Secret));
             wtr.Write(KeyTime);
             wtr.Write((ushort)Key.Length);
             wtr.Write(Key);
             wtr.Write(MapInfo.Length);
             wtr.Write(MapInfo);
-            wtr.WriteUTF(obf1);
-            wtr.WriteUTF(obf2);
-            wtr.WriteUTF(obf3);
-            wtr.WriteUTF(obf4);
-            wtr.WriteUTF(obf5);
+            wtr.WriteUTF(EntryTag);
+            wtr.WriteUTF(GameNet);
+            wtr.WriteUTF(GameNetUserId);
+            wtr.WriteUTF(PlayPlatform);
+            wtr.WriteUTF(PlatformToken);
+            wtr.WriteUTF(UserToken);
         }
     }
 }
