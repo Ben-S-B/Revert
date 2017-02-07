@@ -1,7 +1,6 @@
 <GroundTypes>
 
 
-
    <Ground type="0x00" id="Black Water">
       <Texture>
          <File>lofiEnvironment2</File>
@@ -1804,6 +1803,7 @@
          </Texture>
       </RandomTexture>
       <Speed>.95</Speed>
+      <BlendPriority>18</BlendPriority>
    </Ground>
    <Ground type="0x80" id="Snow Dark">
       <Texture>
@@ -3709,6 +3709,234 @@
       </Texture>
       <MinDamage>70</MinDamage>
       <MaxDamage>80</MaxDamage>
+   </Ground>
+   <Ground type="0x259a" id="DS Floor Tile">
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x567</Index>
+      </Texture>
+   </Ground>
+   <Ground type="0x259b" id="DS Sludge Tile">
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x568</Index>
+      </Texture>
+      <Animate dy="-0.5">Flow</Animate>
+      <Speed>0.7</Speed>
+      <Sink/>
+   </Ground>
+   <Ground type="0x259c" id="DS Sludge Tile sn">
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x568</Index>
+      </Texture>
+      <Animate dy="0.5">Flow</Animate>
+      <Speed>0.7</Speed>
+      <Sink/>
+   </Ground>
+   <Ground type="0x259d" id="DS Sludge Tile ew">
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x568</Index>
+      </Texture>
+      <Animate dx="0.5">Flow</Animate>
+      <Speed>0.7</Speed>
+      <Sink/>
+   </Ground>
+   <Ground type="0x259e" id="DS Sludge Tile we">
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x568</Index>
+      </Texture>
+      <Animate dx="-0.5">Flow</Animate>
+      <Speed>0.7</Speed>
+      <Sink/>
+   </Ground>
+   <Ground type="0x259f" id="TH Honey">
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x586</Index>
+      </Texture>
+      <Animate dy="0.2" dx="0.2">Flow</Animate>
+      <Speed>0.75</Speed>
+      <BlendPriority>7</BlendPriority>
+      <Sinking/>
+   </Ground>
+   <Ground type="0x25a0" id="TH Floor">
+      <Texture>
+         <File>lofiObj3</File>
+         <Index>0x587</Index>
+      </Texture>
+      <BlendPriority>3</BlendPriority>
+   </Ground>
+   <Ground type="0x58a" id="Encore EB TL">
+      <Texture>
+         <File>lofiEnvironment</File>
+         <Index>0x55</Index>
+      </Texture>
+   </Ground>
+   <Ground type="0x58b" id="Encore EB TR">
+      <Texture>
+         <File>lofiEnvironment</File>
+         <Index>0x55</Index>
+      </Texture>
+   </Ground>
+   <Ground type="0x58c" id="Encore EB BR">
+      <Texture>
+         <File>lofiEnvironment</File>
+         <Index>0x55</Index>
+      </Texture>
+   </Ground>
+   <Ground type="0x58d" id="Encore EB BL">
+      <Texture>
+         <File>lofiEnvironment</File>
+         <Index>0x55</Index>
+      </Texture>
+   </Ground>
+   <Ground type="0x58e" id="Puppet Wood Tile">
+      <Texture>
+         <File>d3LofiObjEmbed</File>
+         <Index>0x3d</Index>
+      </Texture>
+   </Ground>
+   <Ground type="0x1f0" id="Blood Water">
+      <Texture>
+         <File>lofiEnvironment2</File>
+         <Index>0x163</Index>
+      </Texture>
+      <Sink/>
+      <Speed>0.6</Speed>
+      <Animate dx=".4" dy=".4">Wave</Animate>
+      <BlendPriority>-10</BlendPriority>
+   </Ground>
+   <Ground type="0xd67" id="Grey Quad Frozen">
+      <Texture>
+         <File>d3LofiObjEmbed</File>
+         <Index>0x4b</Index>
+      </Texture>
+   </Ground>
+   <Ground type="0xd68" id="Brown Lines Frozen">
+      <Texture>
+         <File>d3LofiObjEmbed</File>
+         <Index>0x4c</Index>
+      </Texture>
+      <BlendPriority>14</BlendPriority>
+   </Ground>
+   <Ground type="0xd69" id="Black Water Frozen">
+      <Texture>
+         <File>d3LofiObjEmbed</File>
+         <Index>0x5b</Index>
+      </Texture>
+      <NoWalk/>
+   </Ground>
+   <Ground type="0xd6a" id="Black Water Light Frozen">
+      <Texture>
+         <File>d3LofiObjEmbed</File>
+         <Index>0x5c</Index>
+      </Texture>
+      <BlendPriority>22</BlendPriority>
+   </Ground>
+   <Ground type="0xd6b" id="Castle Stone Floor Tile Frozen">
+      <Texture>
+         <File>d3LofiObjEmbed</File>
+         <Index>0x59</Index>
+      </Texture>
+   </Ground>
+   <Ground type="0xd6c" id="Castle Stone Floor Tile Dark Frozen">
+      <Texture>
+         <File>d3LofiObjEmbed</File>
+         <Index>0x5a</Index>
+      </Texture>
+   </Ground>
+   <Ground type="0xd6d" id="Oryx Castle Rug Frozen">
+      <SameTypeEdgeMode/>
+      <Texture>
+         <File>d3LofiObjEmbed</File>
+         <Index>0x50</Index>
+      </Texture>
+      <Edge>
+         <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x51</Index>
+         </Texture>
+      </Edge>
+      <InnerCorner>
+         <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x52</Index>
+         </Texture>
+      </InnerCorner>
+      <Corner>
+         <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x53</Index>
+         </Texture>
+      </Corner>
+   </Ground>
+   <Ground type="0xd6e" id="Grey Circle Slide">
+      <RandomTexture>
+         <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x55</Index>
+         </Texture>
+         <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x65</Index>
+         </Texture>
+      </RandomTexture>
+      <SlideAmount>0.95</SlideAmount>
+      <Speed>1</Speed>
+   </Ground>
+   <Ground type="0xd6f" id="Grey Quad Slide">
+      <RandomTexture>
+         <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x54</Index>
+         </Texture>
+         <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x64</Index>
+         </Texture>
+      </RandomTexture>
+      <SlideAmount>0.95</SlideAmount>
+   </Ground>
+   <Ground type="0xd70" id="Grey Open Slide">
+      <RandomTexture>
+         <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x56</Index>
+         </Texture>
+         <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x66</Index>
+         </Texture>
+      </RandomTexture>
+      <SlideAmount>0.95</SlideAmount>
+   </Ground>
+   <Ground type="0xd71" id="Grey Closed Slide">
+      <RandomTexture>
+         <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x57</Index>
+         </Texture>
+         <Texture>
+            <File>d3LofiObjEmbed</File>
+            <Index>0x67</Index>
+         </Texture>
+      </RandomTexture>
+      <SlideAmount>0.95</SlideAmount>
+   </Ground>
+   <Ground type="0xd72" id="Grey Closed Frozen">
+      <Texture>
+         <File>d3LofiObjEmbed</File>
+         <Index>0x58</Index>
+      </Texture>
+   </Ground>
+   <Ground type="0xd73" id="Grey Squares Frozen">
+      <Texture>
+         <File>d3LofiObjEmbed</File>
+         <Index>0x5e</Index>
+      </Texture>
    </Ground>
 
 </GroundTypes>

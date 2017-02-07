@@ -228,7 +228,8 @@ public class ProjectileDesc
         if (elem.Attribute("id") != null)
             BulletType = Utils.FromString(elem.Attribute("id").Value);
         ObjectId = elem.Element("ObjectId").Value;
-        LifetimeMS = Utils.FromString(elem.Element("LifetimeMS").Value);
+
+        LifetimeMS = Utils.FromString(elem.Element("LifetimeMS")?.Value ?? "0");
         Speed = float.Parse(elem.Element("Speed").Value, NumberStyles.Any, ci);
         if ((n = elem.Element("Size")) != null)
             Size = Utils.FromString(n.Value);
@@ -317,7 +318,10 @@ public enum ActivateEffects
     ShurikenAbility,
     UnlockSkin,
     MysteryPortal,
-    GenericActivate
+    GenericActivate,
+    PetSkin,
+    Unlock,
+    Exchange
 }
 
 public class ActivateEffect
@@ -362,6 +366,12 @@ public class ActivateEffect
 
         if (elem.Attribute("objectId") != null)
             ObjectId = elem.Attribute("objectId").Value;
+
+        if (elem.Attribute("skinId") != null)
+            SkinId = elem.Attribute("skinId").Value;
+
+        if (elem.Attribute("slot") != null)
+            UnlockSlot = elem.Attribute("slot").Value;
 
         if (elem.Attribute("angleOffset") != null)
             AngleOffset = Utils.FromString(elem.Attribute("angleOffset").Value);
@@ -416,6 +426,8 @@ public class ActivateEffect
     public bool UseWisMod { get; private set; }
     public float VisualEffect { get; private set; }
     public uint? Color { get; private set; }
+    public string SkinId { get; private set; }
+    public string UnlockSlot { get; private set; }
 }
 
 public class PortalDesc
