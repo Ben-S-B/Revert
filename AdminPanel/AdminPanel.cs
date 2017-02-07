@@ -24,6 +24,7 @@ namespace AdminPanel
         public AdminPanel()
         {
             InitializeComponent();
+            Load += (s, e) => Activate();
 
             var login = new Login();
             DialogResult res;

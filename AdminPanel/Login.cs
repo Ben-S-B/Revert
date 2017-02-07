@@ -23,6 +23,7 @@ namespace AdminPanel
         public Login()
         {
             InitializeComponent();
+            Load += (s, e) => Activate();
         }
 
         public DialogResult ShowDialog(out Account user)

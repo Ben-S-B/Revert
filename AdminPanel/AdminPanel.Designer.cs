@@ -361,6 +361,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "AdminPanel";
+            this.Resizable = false;
             this.Style = MetroFramework.MetroColorStyle.Default;
             this.Text = "Admin Panel";
             this.Theme = MetroFramework.MetroThemeStyle.Default;

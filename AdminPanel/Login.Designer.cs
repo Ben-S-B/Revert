@@ -51,11 +51,11 @@
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.Location = new System.Drawing.Point(22, 185);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(67, 19);
+            this.metroLabel2.Size = new System.Drawing.Size(66, 19);
             this.metroLabel2.TabIndex = 1;
             this.metroLabel2.Text = "Password:";
             // 
-            // metroTextBox1
+            // emailTextBox
             // 
             this.emailTextBox.Lines = new string[0];
             this.emailTextBox.Location = new System.Drawing.Point(95, 150);
@@ -68,12 +68,12 @@
             this.emailTextBox.TabIndex = 2;
             this.emailTextBox.UseSelectable = true;
             // 
-            // metroTextBox2
+            // passwordTextBox
             // 
             this.passwordTextBox.Lines = new string[0];
             this.passwordTextBox.Location = new System.Drawing.Point(95, 185);
             this.passwordTextBox.MaxLength = 32767;
-            this.passwordTextBox.Name = "metroTextBox2";
+            this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.passwordTextBox.SelectedText = "";
@@ -113,6 +113,7 @@
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
             this.Name = "Login";
+            this.Resizable = false;
             this.Text = "Login to Admin Panel";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

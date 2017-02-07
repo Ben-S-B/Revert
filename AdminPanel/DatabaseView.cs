@@ -22,6 +22,7 @@ namespace AdminPanel
         public DatabaseView(string connStr)
         {
             InitializeComponent();
+            Load += (s, e) => Activate();
             this.db = new Database(connStr);
             currentContext = TaskScheduler.FromCurrentSynchronizationContext();
             InitAsync();

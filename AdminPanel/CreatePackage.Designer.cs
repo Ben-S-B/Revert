@@ -67,7 +67,7 @@
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.Location = new System.Drawing.Point(23, 95);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(82, 19);
+            this.metroLabel2.Size = new System.Drawing.Size(80, 19);
             this.metroLabel2.TabIndex = 1;
             this.metroLabel2.Text = "Vault Chests:";
             // 
@@ -214,7 +214,7 @@
             this.metroLabel6.AutoSize = true;
             this.metroLabel6.Location = new System.Drawing.Point(386, 129);
             this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(54, 19);
+            this.metroLabel6.Size = new System.Drawing.Size(53, 19);
             this.metroLabel6.TabIndex = 13;
             this.metroLabel6.Text = "Weight:";
             // 
@@ -337,6 +337,7 @@
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.metroLabel1);
             this.Name = "CreatePackage";
+            this.Resizable = false;
             this.Text = "Create Package";
             this.ResumeLayout(false);
             this.PerformLayout();

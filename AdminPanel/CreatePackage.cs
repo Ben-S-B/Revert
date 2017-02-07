@@ -21,6 +21,7 @@ namespace AdminPanel
         public CreatePackage()
         {
             InitializeComponent();
+            Load += (s, e) => Activate();
         }
 
         private void removeItem_Click(object sender, EventArgs e)
