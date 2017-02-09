@@ -120,7 +120,7 @@ namespace server
                 {
                     using (var wtr = new StreamWriter(context.Response.OutputStream))
                     {
-                        var file = "game" + (context.Request.RawUrl == "/" ? "/index.php" : context.Request.RawUrl);
+                        var file = "game" + (context.Request.RawUrl == "/" ? "/index.html" : context.Request.RawUrl);
                         if (file.Contains("?"))
                             file = file.Remove(file.IndexOf('?'));
                         var info = new FileInfo(file);
