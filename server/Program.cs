@@ -101,7 +101,7 @@ namespace server
                 Logger.InfoFormat("Request \"{0}\" from: {1}", 
                     context.Request.Url.LocalPath, context.Request.RemoteEndPoint);
 
-                if (context.Request.Url.LocalPath.Contains("sfx") || context.Request.Url.LocalPath.Contains("music"))
+                if (context.Request.Url.LocalPath.StartsWith("/sfx") || context.Request.Url.LocalPath.StartsWith("/music"))
                 {
                     //To load the sound effects c:
                     new Sfx().HandleRequest(context);

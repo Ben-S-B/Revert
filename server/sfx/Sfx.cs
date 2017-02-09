@@ -12,9 +12,8 @@ namespace server.sfx
     {
         protected override void HandleRequest()
         {
-            string file = Context.Request.Url.LocalPath.StartsWith("/music") ? "sfx/" + Context.Request.Url.LocalPath : Context.Request.Url.LocalPath;
-
-            //context.Response.Redirect("http://realmofthemadgod.appspot.com/" + file);
+            var localPath = Context.Request.Url.LocalPath;
+            string file = localPath.StartsWith("/music") ? "sfx" + localPath : localPath.Substring(1);
 
             if (File.Exists(file))
             {
@@ -27,10 +26,10 @@ namespace server.sfx
                 }
             }
             else
-                Context.Response.Redirect("http://realmofthemadgod.appspot.com/" +
-                                          (file.Split('/')[1].Contains("music")
-                                              ? file.Replace("sfx/", String.Empty)
-                                              : file));
+            {
+                Program.Logger.Error($"Redirecting for resource: {file}");
+                Context.Response.Redirect("http://realmofthemadgodhrd.appspot.com" + localPath);
+            }
         }
     }
 }
