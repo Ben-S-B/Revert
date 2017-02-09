@@ -14,6 +14,7 @@ namespace server.friends
     {
         protected override void HandleRequest()
         {
+            WriteLine("<Requests></Requests>");
             throw new NotImplementedException();
         }
     }

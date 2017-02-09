@@ -14,7 +14,8 @@ namespace server.log
     {
         protected override void HandleRequest()
         {
-            throw new NotImplementedException();
+            //TODO: track completion of the tutorial for an account
+            WriteLine("<OK/>");
         }
     }
 }
