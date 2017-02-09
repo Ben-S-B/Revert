@@ -136,7 +136,10 @@ namespace server
                             SendFile(file, context);
                         }
                         else
+                        {
+                            Logger.Error($"404: {context.Request.Url.LocalPath}");
                             SendFile("game/404.html", context);
+                        }
                     }
                 }
 

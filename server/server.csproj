@@ -143,6 +143,7 @@
     <Compile Include="account\changePassword.cs" />
     <Compile Include="account\checkGiftCode.cs" />
     <Compile Include="account\forgotPassword.cs" />
+    <Compile Include="account\getBeginnerPackageTimeLeft.cs" />
     <Compile Include="account\getProdAccount.cs" />
     <Compile Include="account\playFortuneGame.cs" />
     <Compile Include="account\purchaseCharSlot.cs" />
@@ -163,10 +164,16 @@
     <Compile Include="credits\kabamadd.cs" />
     <Compile Include="crossdomain.cs" />
     <Compile Include="fame\list.cs" />
+    <Compile Include="friends\acceptRequest.cs" />
+    <Compile Include="friends\getList.cs" />
+    <Compile Include="friends\getRequests.cs" />
+    <Compile Include="friends\rejectRequest.cs" />
+    <Compile Include="friends\requestFriend.cs" />
     <Compile Include="guild\getBoard.cs" />
     <Compile Include="guild\listMembers.cs" />
     <Compile Include="guild\setBoard.cs" />
     <Compile Include="IRequestHandler.cs" />
+    <Compile Include="log\logFteStep.cs" />
     <Compile Include="mysterybox\getBoxes.cs" />
     <Compile Include="package\getPackages.cs" />
     <Compile Include="playerMuledump\view.cs" />
