@@ -35,6 +35,7 @@ namespace Client_Updater
             ChangeCopyright();
             FixEntityClass();
             EnableRemoteTexture();
+            DisableAnalytics();
             Recompile();
             DeleteFolders();
             UpdateLabel("Client done!");
@@ -300,6 +301,80 @@ namespace wServer
 
             File.Copy(Environment.CurrentDirectory + "\\client-mod.swf", Environment.CurrentDirectory + "\\client-release.swf", true);
             File.Delete(Environment.CurrentDirectory + "\\client-mod.swf");*/
+        }
+
+        private void DisableAnalytics()
+        {
+            UpdateLabel("Searching for GATracker");
+            Dictionary<string, string> files = new Dictionary<string, string>();
+            string filetext = String.Empty;
+
+            foreach (string path in this.files)
+            {
+                using (StreamReader rdr = new StreamReader(File.Open(path, FileMode.Open)))
+                {
+                    filetext = rdr.ReadToEnd();
+                    if (filetext.Contains("refid \"com.google.analytics:GATracker\""))
+                    {
+                        UpdateLabel("GATracker found!");
+                        files.Add(path, filetext);
+                    }
+                }
+            }
+
+            foreach (var file in files)
+            {
+                var lines = File.ReadAllLines(file.Key);
+                var newlines = new List<string>();
+                var inTrackEventMethod = false;
+                var inTrackEventCode = false;
+                var inTrackPageviewMethod = false;
+                var inTrackPageviewCode = false;
+                foreach (var line in lines)
+                {
+                    var aline = line;
+                    if (inTrackEventCode || inTrackPageviewCode)
+                    {
+                        aline = "";
+                    }
+
+                    if (line.Contains("refid \"com.google.analytics:GATracker/instance/trackEvent\""))
+                    {
+                        inTrackEventMethod = true;
+                    }
+                    else if(line.Contains("refid \"com.google.analytics:GATracker/instance/trackPageview\""))
+                    {
+                        inTrackPageviewMethod = true;
+                    }
+
+                    if (inTrackEventMethod && line.Contains("code"))
+                    {
+                        inTrackEventCode = true;
+                    }
+                    if (inTrackEventCode && line.Contains("returnvalue"))
+                    {
+                        newlines.Add("pushtrue");
+                        aline = "returnvalue";
+                        inTrackEventMethod = false;
+                        inTrackEventCode = false;
+                    }
+
+                    if(inTrackPageviewMethod && line.Contains("code"))
+                    {
+                        inTrackPageviewCode = true;
+                    }
+                    if(inTrackPageviewCode && line.Contains("returnvoid"))
+                    {
+                        aline = "returnvoid";
+                        inTrackPageviewMethod = false;
+                        inTrackPageviewCode = false;
+                    }
+
+                    newlines.Add(aline);
+                }
+                File.WriteAllLines(file.Key, newlines.ToArray());
+            }
+            UpdateLabel("Disable GATracker: Done!");
         }
 
         private void EnableRemoteTexture()
