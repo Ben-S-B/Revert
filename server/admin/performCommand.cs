@@ -34,6 +34,10 @@ namespace server.admin
 
         protected override void HandleRequest()
         {
+            //ignore remote requests
+            if (!Context.Request.IsLocal)
+                return;
+
             using (var db = new Database())
             {
                 var acc = db.Verify(Query["guid"], Query["password"], Program.GameData);
@@ -100,10 +104,12 @@ namespace server.admin
                         WriteLine("Starting World Server...");
                         break;
                     case "startEditWServerCFG":
+                        //WARNING: this allows you to read arbitrary files from disk with admin access
                         using (var rdr = new StreamReader(File.OpenRead(Query["path"])))
                             WriteLine("NO_SHOW" + rdr.ReadToEnd());
                         break;
                     case "endEditWServerCFG":
+                        //WARNING: this allows you to write arbitrary files to disk with admin access
                         File.WriteAllText(Query["path"], HttpUtility.UrlDecode(Query["content"]));
                         WriteLine("World server config has been written.");
                         break;
