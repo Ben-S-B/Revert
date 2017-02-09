@@ -17,10 +17,10 @@ namespace server.picture
 
         protected override void HandleRequest()
         {
-            //warning: maybe has hidden url injection
+            //warning: maybe has hidden url injection (FIXED by checking for "..")
             string id = Query["id"];
 
-            if (!id.StartsWith("draw:") && !id.StartsWith("file:"))
+            if (!id.StartsWith("draw:") && !id.StartsWith("file:") && !id.Contains(".."))
             {
                 string path = Path.GetFullPath("texture/" + id + ".png");
                 if (!File.Exists(path))
