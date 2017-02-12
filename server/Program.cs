@@ -56,7 +56,7 @@ namespace server
 
             var port = Settings.GetValue<int>("port", "80");
 
-            if (RunPreCheck(port))
+            try
             {
                 listener = new HttpListener();
                 listener.Prefixes.Add($"http://*:{port}/");
@@ -65,8 +65,11 @@ namespace server
                 listener.BeginGetContext(ListenerCallback, null);
                 Logger.Info($"Listening at port {port} (press ESC to terminate)...");
             }
-            else
+            catch (System.Net.Sockets.SocketException)
+            {
                 Logger.Error($"Port {port} is occupied. Can't start listening...\nPress ESC to exit.");
+                listener = null;
+            }
 
             while (Console.ReadKey(true).Key != ConsoleKey.Escape);
 
@@ -77,8 +80,6 @@ namespace server
             listener?.Stop();
             GameData.Dispose();
         }
-
-        private static bool RunPreCheck(int port) => IPGlobalProperties.GetIPGlobalProperties().GetActiveTcpConnections().All(_ => _.LocalEndPoint.Port != port) && IPGlobalProperties.GetIPGlobalProperties().GetActiveTcpListeners().All(_ => _.Port != port);
 
         private static void ListenerCallback(IAsyncResult ar)
         {

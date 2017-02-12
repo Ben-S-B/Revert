@@ -208,6 +208,21 @@ AND characters.charId=death.chrId;";
             return GetAccount(accId, data);
         }
 
+        TimeZoneInfo ServerTimeZone
+        {
+            get
+            {
+                try
+                {
+                    return TimeZoneInfo.FindSystemTimeZoneById("Central Europe Standard Time");
+                }
+                catch (TimeZoneNotFoundException)
+                {
+                    return TimeZoneInfo.FindSystemTimeZoneById("Europe/Amsterdam");
+                }
+            }
+        }
+
         public QuestItem GetDailyQuest(string accId, XmlData data)
         {
             var cmd = CreateQuery();
@@ -232,8 +247,8 @@ AND characters.charId=death.chrId;";
             }
 
             DateTime converted;
-            if (TimeZoneInfo.Local.Id != TimeZoneInfo.FindSystemTimeZoneById("Pacific Standard Time").Id)
-                converted = TimeZoneInfo.ConvertTime(DateTime.Now, TimeZoneInfo.FindSystemTimeZoneById("Pacific Standard Time"));
+            if (TimeZoneInfo.Local.Id != ServerTimeZone.Id)
+                converted = TimeZoneInfo.ConvertTime(DateTime.Now, ServerTimeZone);
             else
                 converted = DateTime.Now;
 

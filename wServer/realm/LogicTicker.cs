@@ -56,6 +56,7 @@ namespace wServer.realm
             RealmTime t = new RealmTime();
             do
             {
+                //TODO: mono, fix null reference exception in tutorial
                 if (Manager.Terminating) break;
 
                 long times = dt/MsPT;

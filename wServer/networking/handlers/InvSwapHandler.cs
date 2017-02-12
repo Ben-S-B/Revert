@@ -36,6 +36,7 @@ namespace wServer.networking.handlers
 
             client.Manager.Logic.AddPendingAction(t =>
             {
+                //TODO: mono, fix null reference exception in tutorial
                 Entity en1 = client.Player.Owner.GetEntity(packet.SlotObject1.ObjectId);
                 Entity en2 = client.Player.Owner.GetEntity(packet.SlotObject2.ObjectId);
                 IContainer con1 = en1 as IContainer;
