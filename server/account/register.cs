@@ -20,21 +20,14 @@ namespace server.account
     {
         protected override void HandleRequest()
         {
-            if (Query["ignore"] == null || !String.IsNullOrWhiteSpace(Query["entrytag"]) || String.IsNullOrWhiteSpace(Query["isAgeVerified"]) || !Query["newGUID"].Contains("@"))
+            if (Query["isAgeVerified"] != "1")
             {
                 using (StreamWriter wtr = new StreamWriter(Context.Response.OutputStream))
-                    wtr.Write("<Error>WebRegister.invalid_email_address</Error>");
+                    wtr.Write("<Error>WebRegister.ineligible_age</Error>");
                 return;
             }
 
-            if (Query.AllKeys.Length != 6)
-            {
-                using (StreamWriter wtr = new StreamWriter(Context.Response.OutputStream))
-                    wtr.Write("<Error>WebRegister.invalid_email_address</Error>");
-                return;
-            }
-
-            if(!IsValidEmail(Query["newGuid"]))
+            if(!IsValidEmail(Query["newGUID"]))
             {
                 using (StreamWriter wtr = new StreamWriter(Context.Response.OutputStream))
                     wtr.Write("<Error>WebRegister.invalid_email_address</Error>");
@@ -75,7 +68,7 @@ namespace server.account
                         if (verifyEmail)
                         {
                             MailMessage message = new MailMessage();
-                            message.To.Add(Query["newGuid"]);
+                            message.To.Add(Query["newGUID"]);
                             message.IsBodyHtml = true;
                             message.Subject = "Please verify your account.";
                             message.From = new MailAddress(Program.Settings.GetValue<string>("serverEmail", ""));
