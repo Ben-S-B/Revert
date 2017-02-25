@@ -253,7 +253,7 @@ namespace wServer.realm.entities
 
         private static readonly ILog log = LogManager.GetLogger(typeof (MerchantLists));
 
-        public static void InitMerchatLists(XmlData data)
+        public static void InitMerchantLists(XmlData data)
         {
             log.Info("Loading merchant lists...");
             List<int> accessoryDyeList = new List<int>();
@@ -294,7 +294,7 @@ namespace wServer.realm.entities
             ClothingClothList = clothingClothList.ToArray();
             AccessoryClothList = accessoryClothList.ToArray();
             AccessoryDyeList = accessoryDyeList.ToArray();
-            log.Info("Merchat lists added.");
+            log.Info("Merchant lists added.");
         }
 
         private static readonly string[] noShopCloths =

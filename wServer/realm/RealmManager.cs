@@ -224,7 +224,7 @@ namespace wServer.realm
             GameData = new XmlData();
             Behaviors = new BehaviorDb(this);
             GeneratorCache.Init();
-            MerchantLists.InitMerchatLists(GameData);
+            MerchantLists.InitMerchantLists(GameData);
 
             AddWorld(World.NEXUS_ID, Worlds[0] = new Nexus());
             AddWorld(World.MARKET, new ClothBazaar());
