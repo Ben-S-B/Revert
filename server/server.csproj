@@ -189,6 +189,7 @@
     <Compile Include="app\globalNews.cs" />
     <Compile Include="picture\get.cs" />
     <Compile Include="arena\getRecords.cs" />
+    <Compile Include="ugc\save.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="account\register.cs" />
