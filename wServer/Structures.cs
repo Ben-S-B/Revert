@@ -165,7 +165,7 @@ namespace wServer
             ObjectSlot ret = new ObjectSlot();
             ret.ObjectId = rdr.ReadInt32();
             ret.SlotId = rdr.ReadByte();
-            ret.ObjectType = (ushort)rdr.ReadInt16();
+            ret.ObjectType = (ushort)rdr.ReadInt32();
             return ret;
         }
 
@@ -173,7 +173,7 @@ namespace wServer
         {
             wtr.Write(ObjectId);
             wtr.Write(SlotId);
-            wtr.Write(ObjectType);
+            wtr.Write((int)ObjectType);
         }
 
         public override string ToString()
@@ -255,7 +255,7 @@ namespace wServer
         public static ObjectDef Read(Client psr, NReader rdr)
         {
             ObjectDef ret = new ObjectDef();
-            ret.ObjectType = (ushort)rdr.ReadInt16();
+            ret.ObjectType = rdr.ReadUInt16();
             ret.Stats = ObjectStats.Read(psr, rdr);
             return ret;
         }
@@ -325,7 +325,7 @@ namespace wServer
             {
                 wtr.Write(Id);
                 Position.Write(psr, wtr);
-                wtr.Write((ushort)Stats.Length);
+                wtr.Write((short)Stats.Length);
                 foreach (KeyValuePair<StatsType, object> i in Stats)
                 {
                     wtr.Write((byte)i.Key);
