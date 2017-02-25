@@ -1,6 +1,5 @@
 ﻿#region
 
-using System;
 using wServer.networking.cliPackets;
 
 #endregion
@@ -16,7 +15,7 @@ namespace wServer.networking.handlers
 
         protected override void HandlePacket(Client client, SquareHitPacket packet)
         {
-            throw new NotImplementedException();
+            //TODO: Implement something
         }
     }
 }
