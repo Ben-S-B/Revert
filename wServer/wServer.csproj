@@ -321,6 +321,7 @@
     <Compile Include="networking\handlers\EditAccountListHandler.cs" />
     <Compile Include="networking\handlers\EnemyHitHandler.cs" />
     <Compile Include="networking\handlers\EscapeHander.cs" />
+    <Compile Include="networking\handlers\FailureHandler.cs" />
     <Compile Include="networking\handlers\GotoAckHandler.cs" />
     <Compile Include="networking\handlers\GroundDamageHandler.cs" />
     <Compile Include="networking\handlers\GuildInvitePacketHandler.cs" />
@@ -329,9 +330,12 @@
     <Compile Include="networking\handlers\InvDropHandler.cs" />
     <Compile Include="networking\handlers\InvSwapHandler.cs" />
     <Compile Include="networking\handlers\JoinGuildPacketHandler.cs" />
+    <Compile Include="networking\handlers\KeyInfoRequestHandler.cs" />
     <Compile Include="networking\handlers\LeaveArenaHandler.cs" />
     <Compile Include="networking\handlers\LoadHandler.cs" />
     <Compile Include="networking\handlers\MoveHandler.cs" />
+    <Compile Include="networking\handlers\ReskinPetHandler.cs" />
+    <Compile Include="networking\handlers\SetConditionHandler.cs" />
     <Compile Include="networking\handlers\TinkerQuestHandler.cs" />
     <Compile Include="networking\handlers\TradeHandler.cs" />
     <Compile Include="networking\handlers\ShootAckHandler.cs" />

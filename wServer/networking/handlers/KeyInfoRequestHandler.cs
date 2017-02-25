@@ -7,14 +7,14 @@ using wServer.networking.cliPackets;
 
 namespace wServer.networking.handlers
 {
-    internal class GotoAckHandler : PacketHandlerBase<GotoAckPacket>
+    internal class KeyInfoRequestHandler : PacketHandlerBase<KeyInfoRequestPacket>
     {
         public override PacketID ID
         {
-            get { return PacketID.GOTOACK; }
+            get { return PacketID.KEY_INFO_REQUEST; }
         }
 
-        protected override void HandlePacket(Client client, GotoAckPacket packet)
+        protected override void HandlePacket(Client client, KeyInfoRequestPacket packet)
         {
             throw new NotImplementedException();
         }
