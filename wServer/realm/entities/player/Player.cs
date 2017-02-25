@@ -643,14 +643,35 @@ namespace wServer.realm.entities.player
                 case 12:
                     chr.Equipment = Inventory.Select(_ => _?.ObjectType ?? -1).ToArray();
                     break;
+
                 case 20:
-                    var equip = Inventory.Select(_ => _?.ObjectType ?? -1).ToArray();
-                    var backpack = new int[8];
-                    Array.Copy(equip, 12, backpack, 0, 8);
-                    Array.Resize(ref equip, 12);
-                    chr.Equipment = equip;
-                    chr.Backpack = backpack;
+                    {
+                        var equip = Inventory.Select(_ => _?.ObjectType ?? -1).ToArray();
+                        var backpack = new int[8];
+                        Array.Copy(equip, 12, backpack, 0, 8);
+                        Array.Resize(ref equip, 12);
+                        chr.Equipment = equip;
+                        chr.Backpack = backpack;
+                    }
                     break;
+
+                case 19:
+                    chr.Equipment = Inventory.Select(_ => _?.ObjectType ?? -1).ToArray();
+                    break;
+
+                case 27:
+                    {
+                        var equip = Inventory.Select(_ => _?.ObjectType ?? -1).ToArray();
+                        var backpack = new int[8];
+                        Array.Copy(equip, 19, backpack, 0, 8);
+                        Array.Resize(ref equip, 19);
+                        chr.Equipment = equip;
+                        chr.Backpack = backpack;
+                    }
+                    break;
+
+                default:
+                    throw new InvalidOperationException();
             }
             chr.MaxHitPoints = Stats[0];
             chr.MaxMagicPoints = Stats[1];
