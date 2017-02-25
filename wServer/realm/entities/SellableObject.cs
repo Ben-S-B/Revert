@@ -13,8 +13,6 @@ namespace wServer.realm.entities
 {
     public class SellableObject : StaticObject
     {
-        private const int BUY_NO_GOLD = 3;
-
         public SellableObject(RealmManager manager, ushort objType)
             : base(manager, objType, null, true, false, false)
         {
@@ -24,7 +22,7 @@ namespace wServer.realm.entities
                 Currency = CurrencyType.Gold;
                 RankReq = 0;
             }
-            else if (objType == 0x0736)
+            else if (objType == 0x0736) //Guild Hall Upgrade 1
             {
                 Currency = CurrencyType.GuildFame;
                 Price = 10000;
@@ -63,7 +61,7 @@ namespace wServer.realm.entities
         {
             Manager.Database.DoActionAsync(db =>
             {
-                if (ObjectType == 0x0505) //Vault chest
+                if (ObjectType == 0x0505) //Closed Vault Chest
                 {
                     if (TryDeduct(player))
                     {
@@ -72,7 +70,7 @@ namespace wServer.realm.entities
                         (Owner as Vault).AddChest(chest, this);
                         player.Client.SendPacket(new BuyResultPacket
                         {
-                            Result = 0,
+                            Result = BuyResult.Success,
                             Message = "{\"key\":\"server.buy_success\"}"
                         });
                     }
@@ -80,17 +78,17 @@ namespace wServer.realm.entities
                     {
                         player.Client.SendPacket(new BuyResultPacket
                         {
-                            Result = BUY_NO_GOLD,
+                            Result = BuyResult.NotEnoughGold,
                             Message = "{\"key\":\"server.not_enough_gold\"}"
                         });
                     }
                 }
-                if (ObjectType == 0x0736)
+                if (ObjectType == 0x0736) //Guild Hall Upgrade 1
                 {
                     player.Client.SendPacket(new BuyResultPacket()
                     {
-                        Result = 9,
-                        Message = "{\"key\":\"server.not_enough_game\"}"
+                        Result = BuyResult.NotEnoughFame,
+                        Message = "{\"key\":\"server.not_enough_fame\"}"
                     });
                 }
             });

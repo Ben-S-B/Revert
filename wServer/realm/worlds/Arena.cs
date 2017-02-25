@@ -73,7 +73,7 @@ namespace wServer.realm.worlds
                     {
                         i.Value.Client.SendPacket(new ArenaNextWavePacket
                         {
-                            Type = wave
+                            CurrentRuntime = wave
                         });
                     }
                     waiting = true;

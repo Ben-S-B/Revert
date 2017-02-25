@@ -23,6 +23,7 @@
                 MyItems[i] = TradeItem.Read(psr, rdr);
 
             YourName = rdr.ReadUTF();
+
             YourItems = new TradeItem[rdr.ReadInt16()];
             for (int i = 0; i < YourItems.Length; i++)
                 YourItems[i] = TradeItem.Read(psr, rdr);

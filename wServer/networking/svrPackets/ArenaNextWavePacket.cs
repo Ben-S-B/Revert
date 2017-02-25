@@ -2,7 +2,7 @@
 {
     public class ArenaNextWavePacket : ServerPacket
     {
-        public int Type { get; set; } //Not sure for what the type is, but u need it
+        public int CurrentRuntime { get; set; }
 
         public override PacketID ID
         {
@@ -16,12 +16,12 @@
 
         protected override void Read(Client client, NReader rdr)
         {
-            Type = rdr.ReadInt32();
+            CurrentRuntime = rdr.ReadInt32();
         }
 
         protected override void Write(Client client, NWriter wtr)
         {
-            wtr.Write(Type);
+            wtr.Write(CurrentRuntime);
         }
     }
 }

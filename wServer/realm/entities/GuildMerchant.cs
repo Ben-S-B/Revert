@@ -56,7 +56,7 @@ namespace wServer.realm.entities
                                 player.Client.SendPacket(new BuyResultPacket
                                 {
                                     Message = "{\"key\":\"server.sale_succeeds\"}",
-                                    Result = -1
+                                    Result = BuyResult.Success
                                 });
                                 player.SendInfo("Please leave the Guild Hall, we need some minutes to update the Guild Hall.");
                                 player.Guild.UpdateGuildHall();
@@ -68,7 +68,7 @@ namespace wServer.realm.entities
                             player.Client.SendPacket(new BuyResultPacket
                             {
                                 Message = "{\"key\":\"server.not_enough_fame\"}",
-                                Result = 9
+                                Result = BuyResult.NotEnoughFame
                             });
                         }
                     }

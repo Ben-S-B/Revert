@@ -8,8 +8,6 @@ namespace wServer.networking.cliPackets
 {
     public class LeaveArenaPacket : ClientPacket
     {
-        public int _li { get; set; }
-
         public override PacketID ID
         {
             get { return PacketID.ACCEPT_ARENA_DEATH; }
@@ -22,12 +20,10 @@ namespace wServer.networking.cliPackets
 
         protected override void Read(Client client, NReader rdr)
         {
-            _li = rdr.ReadInt32();
         }
 
         protected override void Write(Client client, NWriter wtr)
         {
-            wtr.Write(_li);
         }
     }
 }

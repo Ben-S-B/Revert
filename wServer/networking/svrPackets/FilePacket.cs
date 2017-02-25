@@ -18,8 +18,7 @@
         protected override void Read(Client psr, NReader rdr)
         {
             Name = rdr.ReadUTF();
-            Bytes = new byte[rdr.ReadInt32()];
-            Bytes = rdr.ReadBytes(Bytes.Length);
+            Bytes = rdr.ReadBytes(rdr.ReadInt32());
         }
 
         protected override void Write(Client psr, NWriter wtr)

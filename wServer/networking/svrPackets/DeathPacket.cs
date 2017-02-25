@@ -4,9 +4,9 @@
     {
         public string AccountId { get; set; }
         public int CharId { get; set; }
-        public string Killer { get; set; }
-        public int obf0 { get; set; }
-        public int obf1 { get; set; }
+        public string KilledBy { get; set; }
+        public int ZombieType { get; set; }
+        public int ZombieId { get; set; }
 
         public override PacketID ID
         {
@@ -22,18 +22,18 @@
         {
             AccountId = rdr.ReadUTF();
             CharId = rdr.ReadInt32();
-            Killer = rdr.ReadUTF();
-            obf0 = rdr.ReadInt32();
-            obf1 = rdr.ReadInt32();
+            KilledBy = rdr.ReadUTF();
+            ZombieType = rdr.ReadInt32();
+            ZombieId = rdr.ReadInt32();
         }
 
         protected override void Write(Client psr, NWriter wtr)
         {
             wtr.WriteUTF(AccountId);
             wtr.Write(CharId);
-            wtr.WriteUTF(Killer);
-            wtr.Write(obf0);
-            wtr.Write(obf1);
+            wtr.WriteUTF(KilledBy);
+            wtr.Write(ZombieType);
+            wtr.Write(ZombieId);
         }
     }
 }

@@ -17,13 +17,13 @@
 
         protected override void Read(Client psr, NReader rdr)
         {
-            ConditionEffect = rdr.ReadInt32();
+            ConditionEffect = (int)rdr.ReadByte();
             ConditionDuration = rdr.ReadSingle();
         }
 
         protected override void Write(Client psr, NWriter wtr)
         {
-            wtr.Write(ConditionEffect);
+            wtr.Write((byte)ConditionEffect);
             wtr.Write(ConditionDuration);
         }
     }

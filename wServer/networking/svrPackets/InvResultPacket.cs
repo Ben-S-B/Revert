@@ -2,6 +2,7 @@
 {
     public class InvResultPacket : ServerPacket
     {
+        //0 for success, anything else for failure
         public int Result { get; set; }
 
         public override PacketID ID

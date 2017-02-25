@@ -7,8 +7,7 @@
         public ushort Damage { get; set; }
         public ConditionEffectIndex Effects { get; set; }
         public float EffectDuration { get; set; }
-        public short OriginType { get; set; }
-        //public ARGB Color { get; set; }
+        public ushort OriginType { get; set; }
 
         public override PacketID ID
         {
@@ -27,8 +26,7 @@
             Damage = rdr.ReadUInt16();
             Effects = (ConditionEffectIndex) rdr.ReadByte();
             EffectDuration = rdr.ReadSingle();
-            OriginType = rdr.ReadInt16();
-            //Color = ARGB.Read(psr, rdr);
+            OriginType = rdr.ReadUInt16();
         }
 
         protected override void Write(Client psr, NWriter wtr)
@@ -39,7 +37,6 @@
             wtr.Write((byte) Effects);
             wtr.Write(EffectDuration);
             wtr.Write(OriginType);
-            //Color.Write(psr, wtr);
         }
     }
 }

@@ -2,7 +2,7 @@
 {
     public class BuyResultPacket : ServerPacket
     {
-        public int Result { get; set; }
+        public BuyResult Result { get; set; }
         public string Message { get; set; }
 
         public override PacketID ID
@@ -17,13 +17,13 @@
 
         protected override void Read(Client psr, NReader rdr)
         {
-            Result = rdr.ReadInt32();
+            Result = (BuyResult)rdr.ReadInt32();
             Message = rdr.ReadUTF();
         }
 
         protected override void Write(Client psr, NWriter wtr)
         {
-            wtr.Write(Result);
+            wtr.Write((int)Result);
             wtr.WriteUTF(Message);
         }
     }

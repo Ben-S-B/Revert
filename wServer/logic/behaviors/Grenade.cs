@@ -75,7 +75,7 @@ namespace wServer.logic.behaviors
                             Damage = (ushort) damage,
                             EffectDuration = 0,
                             Effects = 0,
-                            OriginType = (short)host.ObjectType
+                            OriginType = host.ObjectType
                         }, null);
                         world.Aoe(target, radius, true, p => { (p as IPlayer).Damage(damage, host as Character); });
                     }));

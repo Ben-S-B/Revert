@@ -7,7 +7,8 @@
         public string GUID { get; set; }
         public string Password { get; set; }
         public string Secret { get; set; }
-        public int randomint1 { get; set; }
+        public int RandomInt1 { get; set; }
+        public int RandomInt2 { get; set; }
         public int KeyTime { get; set; }
         public byte[] Key { get; set; }
         public byte[] MapInfo { get; set; }
@@ -33,9 +34,9 @@
             BuildVersion = rdr.ReadUTF();
             GameId = rdr.ReadInt32();
             GUID = RSA.Instance.Decrypt(rdr.ReadUTF());
-            rdr.ReadInt32();
+            RandomInt1 = rdr.ReadInt32();
             Password = RSA.Instance.Decrypt(rdr.ReadUTF());
-            randomint1 = rdr.ReadInt32();
+            RandomInt2 = rdr.ReadInt32();
             Secret = RSA.Instance.Decrypt(rdr.ReadUTF());
             KeyTime = rdr.ReadInt32();
             Key = rdr.ReadBytes(rdr.ReadInt16());
@@ -52,9 +53,9 @@
         {
             wtr.WriteUTF(BuildVersion);
             wtr.Write(GameId);
-            wtr.Write(0);
+            wtr.Write(RandomInt1);
             wtr.WriteUTF(RSA.Instance.Encrypt(GUID));
-            wtr.Write(randomint1);
+            wtr.Write(RandomInt2);
             wtr.WriteUTF(RSA.Instance.Encrypt(Password));
             wtr.WriteUTF(RSA.Instance.Encrypt(Secret));
             wtr.Write(KeyTime);

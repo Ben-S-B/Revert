@@ -29,9 +29,16 @@
             Position = Position.Read(psr, rdr);
             Angle = rdr.ReadSingle();
             Damage = rdr.ReadInt16();
-            if (rdr.BaseStream.Length - rdr.BaseStream.Position <= 0) return;
-            NumShots = rdr.ReadByte();
-            AngleInc = rdr.ReadSingle();
+            if (rdr.BaseStream.Length - rdr.BaseStream.Position > 0)
+            {
+                NumShots = rdr.ReadByte();
+                AngleInc = rdr.ReadSingle();
+            }
+            else
+            {
+                NumShots = 1;
+                AngleInc = 0;
+            }
         }
 
         protected override void Write(Client psr, NWriter wtr)
@@ -42,7 +49,7 @@
             Position.Write(psr, wtr);
             wtr.Write(Angle);
             wtr.Write(Damage);
-            if (NumShots == 1 || AngleInc == 0) return;
+            if (NumShots == 1 && AngleInc == 0) return;
             wtr.Write(NumShots);
             wtr.Write(AngleInc);
         }

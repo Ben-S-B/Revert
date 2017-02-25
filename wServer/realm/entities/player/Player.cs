@@ -508,9 +508,9 @@ namespace wServer.realm.entities.player
                     {
                         AccountId = AccountId,
                         CharId = Client.Character.CharacterId,
-                        Killer = killer,
-                        obf0 = -1,
-                        obf1 = -1,
+                        KilledBy = killer,
+                        ZombieType = -1,
+                        ZombieId = -1,
                     });
                     Owner.Timers.Add(new WorldTimer(1000, (w, t) => Client.Disconnect()));
                     Owner.LeaveWorld(this);

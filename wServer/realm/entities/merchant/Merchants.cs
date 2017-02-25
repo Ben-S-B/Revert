@@ -160,21 +160,21 @@ namespace wServer.realm.entities.merchant
                             case CurrencyType.Gold:
                                 player.Client.SendPacket(new BuyResultPacket
                                 {
-                                    Result = BUY_NO_GOLD,
+                                    Result = BuyResult.NotEnoughGold,
                                     Message = "{\"key\":\"server.not_enough_gold\"}"
                                 });
                                 break;
                             case CurrencyType.Fame:
                                 player.Client.SendPacket(new BuyResultPacket
                                 {
-                                    Result = BUY_NO_FAME,
+                                    Result = BuyResult.NotEnoughFame,
                                     Message = "{\"key\":\"server.not_enough_fame\"}"
                                 });
                                 break;
                             case CurrencyType.FortuneTokens:
                                 player.Client.SendPacket(new BuyResultPacket
                                 {
-                                    Result = BUY_NO_FORTUNETOKENS,
+                                    Result = BuyResult.NotEnoughGold, //TODO: check what fortune tokens are
                                     Message = "{\"key\":\"server.not_enough_fortunetokens\"}"
                                 });
                                 break;
