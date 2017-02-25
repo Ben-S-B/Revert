@@ -299,6 +299,7 @@
     <Compile Include="networking\cliPackets\PongPacket.cs" />
     <Compile Include="networking\cliPackets\RequestTradePacket.cs" />
     <Compile Include="networking\cliPackets\ReskinPacket.cs" />
+    <Compile Include="networking\cliPackets\ReskinPetPacket.cs" />
     <Compile Include="networking\cliPackets\SetConditionPacket.cs" />
     <Compile Include="networking\cliPackets\ShootAckPacket.cs" />
     <Compile Include="networking\cliPackets\SquareHitPacket.cs" />
