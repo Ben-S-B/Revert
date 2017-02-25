@@ -3,98 +3,191 @@ namespace wServer
 {
     public enum PacketID : byte
     {
-       FAILURE = 0, //slotid: 1
-       CREATE_SUCCESS = 47, //slotid: 2
-       CREATE = 30, //slotid: 3
-       PLAYERSHOOT = 88, //slotid: 4
-       MOVE = 48, //slotid: 5
-       PLAYERTEXT = 64, //slotid: 6
-       TEXT = 27, //slotid: 7
-       SERVERPLAYERSHOOT = 68, //slotid: 8
-       DAMAGE = 9, //slotid: 9
-       UPDATE = 1, //slotid: 10
-       UPDATEACK = 60, //slotid: 11
-       NOTIFICATION = 16, //slotid: 12
-       NEWTICK = 23, //slotid: 13
-       INVSWAP = 78, //slotid: 14
-       USEITEM = 100, //slotid: 15
-       SHOWEFFECT = 80, //slotid: 16
-       HELLO = 36, //slotid: 17
-       GOTO = 33, //slotid: 18
-       INVDROP = 12, //slotid: 19
-       INVRESULT = 18, //slotid: 20
-       RECONNECT = 39, //slotid: 21
-       PING = 79, //slotid: 22
-       PONG = 34, //slotid: 23
-       MAPINFO = 11, //slotid: 24
-       LOAD = 49, //slotid: 25
-       PIC = 57, //slotid: 26
-       SETCONDITION = 93, //slotid: 27
-       TELEPORT = 58, //slotid: 28
-       USEPORTAL = 86, //slotid: 29
-       DEATH = 26, //slotid: 30
-       BUY = 90, //slotid: 31
-       BUYRESULT = 10, //slotid: 32
-       AOE = 94, //slotid: 33
-       GROUNDDAMAGE = 46, //slotid: 34
-       PLAYERHIT = 28, //slotid: 35
-       ENEMYHIT = 21, //slotid: 36
-       AOEACK = 92, //slotid: 37
-       SHOOTACK = 40, //slotid: 38
-       OTHERHIT = 50, //slotid: 39
-       SQUAREHIT = 24, //slotid: 40
-       GOTOACK = 4, //slotid: 41
-       EDITACCOUNTLIST = 95, //slotid: 42
-       ACCOUNTLIST = 99, //slotid: 43
-       QUESTOBJID = 77, //slotid: 44
-       CHOOSENAME = 8, //slotid: 45
-       NAMERESULT = 22, //slotid: 46
-       CREATEGUILD = 84, //slotid: 47
-       GUILDRESULT = 66, //slotid: 48
-       GUILDREMOVE = 7, //slotid: 49
-       GUILDINVITE = 61, //slotid: 50
-       ALLYSHOOT = 31, //slotid: 51
-       ENEMYSHOOT = 81, //slotid: 52
-       REQUESTTRADE = 82, //slotid: 53
-       TRADEREQUESTED = 42, //slotid: 54
-       TRADESTART = 45, //slotid: 55
-       CHANGETRADE = 17, //slotid: 56
-       TRADECHANGED = 87, //slotid: 57
-       ACCEPTTRADE = 3, //slotid: 58
-       CANCELTRADE = 76, //slotid: 59
-       TRADEDONE = 55, //slotid: 60
-       TRADEACCEPTED = 15, //slotid: 61
-       CLIENTSTAT = 85, //slotid: 62
-       CHECKCREDITS = 52, //slotid: 63
-       ESCAPE = 98, //slotid: 64
-       FILE = 5, //slotid: 65
-       INVITEDTOGUILD = 69, //slotid: 66
-       JOINGUILD = 25, //slotid: 67
-       CHANGEGUILDRANK = 62, //slotid: 68
-       PLAYSOUND = 65, //slotid: 69
-       GLOBAL_NOTIFICATION = 41, //slotid: 70
-       RESKIN = 74, //slotid: 71
-       PETUPGRADEREQUEST = 19, //slotid: 72
-       ACTIVE_PET_UPDATE_REQUEST = 75, //slotid: 73
-       ACTIVEPETUPDATE = 63, //slotid: 74
-       NEW_ABILITY = 38, //slotid: 75
-       PETYARDUPDATE = 51, //slotid: 76
-       EVOLVE_PET = 67, //slotid: 77
-       DELETE_PET = 20, //slotid: 78
-       HATCH_PET = 96, //slotid: 79
-       ENTER_ARENA = 56, //slotid: 80
-       IMMINENT_ARENA_WAVE = 35, //slotid: 81
-       ARENA_DEATH = 89, //slotid: 82
-       ACCEPT_ARENA_DEATH = 83, //slotid: 83
-       VERIFY_EMAIL = 14, //slotid: 84
-       RESKIN_UNLOCK = 37, //slotid: 85
-       PASSWORD_PROMPT = 6, //slotid: 86
-       QUEST_FETCH_ASK = 13, //slotid: 87
-       QUEST_REDEEM = 101, //slotid: 88
-       QUEST_FETCH_RESPONSE = 91, //slotid: 89
-       QUEST_REDEEM_RESPONSE = 44, //slotid: 90
-       PET_CHANGE_FORM_MSG = 53, //slotid: 91
-       KEY_INFO_REQUEST = 59, //slotid: 92
-       KEY_INFO_RESPONSE = 97 //slotid: 93
+        /// <summary>Failure.as</summary>
+        FAILURE = 0,
+        /// <summary>CreateSuccess.as</summary>
+        CREATE_SUCCESS = 47,
+        /// <summary>Create.as</summary>
+        CREATE = 30,
+        /// <summary>PlayerShoot.as</summary>
+        PLAYERSHOOT = 88,
+        /// <summary>Move.as</summary>
+        MOVE = 48,
+        /// <summary>PlayerText.as</summary>
+        PLAYERTEXT = 64,
+        /// <summary>Text.as</summary>
+        TEXT = 27,
+        /// <summary>ServerPlayerShoot.as</summary>
+        SERVERPLAYERSHOOT = 68,
+        /// <summary>Damage.as</summary>
+        DAMAGE = 9,
+        /// <summary>Update.as</summary>
+        UPDATE = 1,
+        /// <summary>Message.as</summary>
+        UPDATEACK = 60,
+        /// <summary>Notification.as</summary>
+        NOTIFICATION = 16,
+        /// <summary>NewTick.as</summary>
+        NEWTICK = 23,
+        /// <summary>InvSwap.as</summary>
+        INVSWAP = 78,
+        /// <summary>UseItem.as</summary>
+        USEITEM = 100,
+        /// <summary>ShowEffect.as</summary>
+        SHOWEFFECT = 80,
+        /// <summary>Hello.as</summary>
+        HELLO = 36,
+        /// <summary>Goto.as</summary>
+        GOTO = 33,
+        /// <summary>InvDrop.as</summary>
+        INVDROP = 12,
+        /// <summary>InvResult.as</summary>
+        INVRESULT = 18,
+        /// <summary>Reconnect.as</summary>
+        RECONNECT = 39,
+        /// <summary>Ping.as</summary>
+        PING = 79,
+        /// <summary>Pong.as</summary>
+        PONG = 34,
+        /// <summary>MapInfo.as</summary>
+        MAPINFO = 11,
+        /// <summary>Load.as</summary>
+        LOAD = 49,
+        /// <summary>Pic.as</summary>
+        PIC = 57,
+        /// <summary>SetCondition.as</summary>
+        SETCONDITION = 93,
+        /// <summary>Teleport.as</summary>
+        TELEPORT = 58,
+        /// <summary>UsePortal.as</summary>
+        USEPORTAL = 86,
+        /// <summary>Death.as</summary>
+        DEATH = 26,
+        /// <summary>Buy.as</summary>
+        BUY = 90,
+        /// <summary>BuyResult.as</summary>
+        BUYRESULT = 10,
+        /// <summary>Aoe.as</summary>
+        AOE = 94,
+        /// <summary>GroundDamage.as</summary>
+        GROUNDDAMAGE = 46,
+        /// <summary>PlayerHit.as</summary>
+        PLAYERHIT = 28,
+        /// <summary>EnemyHit.as</summary>
+        ENEMYHIT = 21,
+        /// <summary>AoeAck.as</summary>
+        AOEACK = 92,
+        /// <summary>ShootAck.as</summary>
+        SHOOTACK = 40,
+        /// <summary>OtherHit.as</summary>
+        OTHERHIT = 50,
+        /// <summary>SquareHit.as</summary>
+        SQUAREHIT = 24,
+        /// <summary>GotoAck.as</summary>
+        GOTOACK = 4,
+        /// <summary>EditAccountList.as</summary>
+        EDITACCOUNTLIST = 95,
+        /// <summary>AccountList.as</summary>
+        ACCOUNTLIST = 99,
+        /// <summary>QuestObjId.as</summary>
+        QUESTOBJID = 77,
+        /// <summary>ChooseName.as</summary>
+        CHOOSENAME = 8,
+        /// <summary>NameResult.as</summary>
+        NAMERESULT = 22,
+        /// <summary>CreateGuild.as</summary>
+        CREATEGUILD = 84,
+        /// <summary>GuildResult.as</summary>
+        GUILDRESULT = 66,
+        /// <summary>GuildRemove.as</summary>
+        GUILDREMOVE = 7,
+        /// <summary>GuildInvite.as</summary>
+        GUILDINVITE = 61,
+        /// <summary>AllyShoot.as</summary>
+        ALLYSHOOT = 31,
+        /// <summary>EnemyShoot.as</summary>
+        ENEMYSHOOT = 81,
+        /// <summary>RequestTrade.as</summary>
+        REQUESTTRADE = 82,
+        /// <summary>TradeRequested.as</summary>
+        TRADEREQUESTED = 42,
+        /// <summary>TradeStart.as</summary>
+        TRADESTART = 45,
+        /// <summary>ChangeTrade.as</summary>
+        CHANGETRADE = 17,
+        /// <summary>TradeChanged.as</summary>
+        TRADECHANGED = 87,
+        /// <summary>AcceptTrade.as</summary>
+        ACCEPTTRADE = 3,
+        /// <summary>CancelTrade.as</summary>
+        CANCELTRADE = 76,
+        /// <summary>TradeDone.as</summary>
+        TRADEDONE = 55,
+        /// <summary>TradeAccepted.as</summary>
+        TRADEACCEPTED = 15,
+        /// <summary>ClientStat.as</summary>
+        CLIENTSTAT = 85,
+        /// <summary>CheckCredits.as</summary>
+        CHECKCREDITS = 52,
+        /// <summary>Escape.as</summary>
+        ESCAPE = 98,
+        /// <summary>File.as</summary>
+        FILE = 5,
+        /// <summary>InvitedToGuild.as</summary>
+        INVITEDTOGUILD = 69,
+        /// <summary>JoinGuild.as</summary>
+        JOINGUILD = 25,
+        /// <summary>ChangeGuildRank.as</summary>
+        CHANGEGUILDRANK = 62,
+        /// <summary>PlaySound.as</summary>
+        PLAYSOUND = 65,
+        /// <summary>GlobalNotification.as</summary>
+        GLOBAL_NOTIFICATION = 41,
+        /// <summary>Reskin.as</summary>
+        RESKIN = 74,
+        /// <summary>PetUpgradeRequest.as</summary>
+        PETUPGRADEREQUEST = 19,
+        /// <summary>ActivePetUpdateRequest.as</summary>
+        ACTIVE_PET_UPDATE_REQUEST = 75,
+        /// <summary>ActivePet.as</summary>
+        ACTIVEPETUPDATE = 63,
+        /// <summary>NewAbilityMessage.as</summary>
+        NEW_ABILITY = 38,
+        /// <summary>PetYard.as</summary>
+        PETYARDUPDATE = 51,
+        /// <summary>EvolvedPetMessage.as</summary>
+        EVOLVE_PET = 67,
+        /// <summary>DeletePetMessage.as</summary>
+        DELETE_PET = 20,
+        /// <summary>HatchPetMessage.as</summary>
+        HATCH_PET = 96,
+        /// <summary>EnterArena.as</summary>
+        ENTER_ARENA = 56,
+        /// <summary>ImminentArenaWave.as</summary>
+        IMMINENT_ARENA_WAVE = 35,
+        /// <summary>ArenaDeath.as</summary>
+        ARENA_DEATH = 89,
+        /// <summary>OutgoingMessage.as</summary>
+        ACCEPT_ARENA_DEATH = 83,
+        /// <summary>VerifyEmail.as</summary>
+        VERIFY_EMAIL = 14,
+        /// <summary>ReskinUnlock.as</summary>
+        RESKIN_UNLOCK = 37,
+        /// <summary>PasswordPrompt.as</summary>
+        PASSWORD_PROMPT = 6,
+        /// <summary>OutgoingMessage.as</summary>
+        QUEST_FETCH_ASK = 13,
+        /// <summary>QuestRedeem.as</summary>
+        QUEST_REDEEM = 101,
+        /// <summary>QuestFetchResponse.as</summary>
+        QUEST_FETCH_RESPONSE = 91,
+        /// <summary>QuestRedeemResponse.as</summary>
+        QUEST_REDEEM_RESPONSE = 44,
+        /// <summary>ReskinPet.as</summary>
+        PET_CHANGE_FORM_MSG = 53,
+        /// <summary>KeyInfoRequest.as</summary>
+        KEY_INFO_REQUEST = 59,
+        /// <summary>KeyInfoResponse.as</summary>
+        KEY_INFO_RESPONSE = 97
     }
 }

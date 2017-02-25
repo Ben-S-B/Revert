@@ -41,6 +41,107 @@ namespace Client_Updater
             UpdateLabel("Client done!");
         }
 
+        private string GetPacketNameClass(string name)
+        {
+            switch (name)
+            {
+                case "ACCEPT_ARENA_DEATH": return "OutgoingMessage";
+                case "ACCEPTTRADE": return "AcceptTrade";
+                case "ACCOUNTLIST": return "AccountList";
+                case "ACTIVE_PET_UPDATE_REQUEST": return "ActivePetUpdateRequest";
+                case "ACTIVEPETUPDATE": return "ActivePet";
+                case "ALLYSHOOT": return "AllyShoot";
+                case "AOE": return "Aoe";
+                case "AOEACK": return "AoeAck";
+                case "ARENA_DEATH": return "ArenaDeath";
+                case "BUY": return "Buy";
+                case "BUYRESULT": return "BuyResult";
+                case "CANCELTRADE": return "CancelTrade";
+                case "CHANGEGUILDRANK": return "ChangeGuildRank";
+                case "CHANGETRADE": return "ChangeTrade";
+                case "CHECKCREDITS": return "CheckCredits";
+                case "CHOOSENAME": return "ChooseName";
+                case "CLIENTSTAT": return "ClientStat";
+                case "CREATE": return "Create";
+                case "CREATE_SUCCESS": return "CreateSuccess";
+                case "CREATEGUILD": return "CreateGuild";
+                case "DAMAGE": return "Damage";
+                case "DEATH": return "Death";
+                case "DELETE_PET": return "DeletePetMessage";
+                case "EDITACCOUNTLIST": return "EditAccountList";
+                case "ENEMYHIT": return "EnemyHit";
+                case "ENEMYSHOOT": return "EnemyShoot";
+                case "ENTER_ARENA": return "EnterArena";
+                case "ESCAPE": return "Escape";
+                case "EVOLVE_PET": return "EvolvedPetMessage";
+                case "FAILURE": return "Failure";
+                case "FILE": return "File";
+                case "GLOBAL_NOTIFICATION": return "GlobalNotification";
+                case "GOTO": return "Goto";
+                case "GOTOACK": return "GotoAck";
+                case "GROUNDDAMAGE": return "GroundDamage";
+                case "GUILDINVITE": return "GuildInvite";
+                case "GUILDREMOVE": return "GuildRemove";
+                case "GUILDRESULT": return "GuildResult";
+                case "HATCH_PET": return "HatchPetMessage";
+                case "HELLO": return "Hello";
+                case "IMMINENT_ARENA_WAVE": return "ImminentArenaWave";
+                case "INVDROP": return "InvDrop";
+                case "INVITEDTOGUILD": return "InvitedToGuild";
+                case "INVRESULT": return "InvResult";
+                case "INVSWAP": return "InvSwap";
+                case "JOINGUILD": return "JoinGuild";
+                case "KEY_INFO_REQUEST": return "KeyInfoRequest";
+                case "KEY_INFO_RESPONSE": return "KeyInfoResponse";
+                case "LOAD": return "Load";
+                case "MAPINFO": return "MapInfo";
+                case "MOVE": return "Move";
+                case "NAMERESULT": return "NameResult";
+                case "NEW_ABILITY": return "NewAbilityMessage";
+                case "NEWTICK": return "NewTick";
+                case "NOTIFICATION": return "Notification";
+                case "OTHERHIT": return "OtherHit";
+                case "PASSWORD_PROMPT": return "PasswordPrompt";
+                case "PET_CHANGE_FORM_MSG": return "ReskinPet";
+                case "PETUPGRADEREQUEST": return "PetUpgradeRequest";
+                case "PETYARDUPDATE": return "PetYard";
+                case "PIC": return "Pic";
+                case "PING": return "Ping";
+                case "PLAYERHIT": return "PlayerHit";
+                case "PLAYERSHOOT": return "PlayerShoot";
+                case "PLAYERTEXT": return "PlayerText";
+                case "PLAYSOUND": return "PlaySound";
+                case "PONG": return "Pong";
+                case "QUEST_FETCH_ASK": return "OutgoingMessage";
+                case "QUEST_FETCH_RESPONSE": return "QuestFetchResponse";
+                case "QUEST_REDEEM": return "QuestRedeem";
+                case "QUEST_REDEEM_RESPONSE": return "QuestRedeemResponse";
+                case "QUESTOBJID": return "QuestObjId";
+                case "RECONNECT": return "Reconnect";
+                case "REQUESTTRADE": return "RequestTrade";
+                case "RESKIN": return "Reskin";
+                case "RESKIN_UNLOCK": return "ReskinUnlock";
+                case "SERVERPLAYERSHOOT": return "ServerPlayerShoot";
+                case "SETCONDITION": return "SetCondition";
+                case "SHOOTACK": return "ShootAck";
+                case "SHOWEFFECT": return "ShowEffect";
+                case "SQUAREHIT": return "SquareHit";
+                case "TELEPORT": return "Teleport";
+                case "TEXT": return "Text";
+                case "TRADEACCEPTED": return "TradeAccepted";
+                case "TRADECHANGED": return "TradeChanged";
+                case "TRADEDONE": return "TradeDone";
+                case "TRADEREQUESTED": return "TradeRequested";
+                case "TRADESTART": return "TradeStart";
+                case "UPDATE": return "Update";
+                case "UPDATEACK": return "Message";
+                case "USEITEM": return "UseItem";
+                case "USEPORTAL": return "UsePortal";
+                case "VERIFY_EMAIL": return "VerifyEmail";
+            }
+            return null;
+        }
+
         private string GetPacketIdName(int slotid)
         {
             switch (slotid)
@@ -185,7 +286,10 @@ namespace wServer
                     string realName = GetPacketIdName(i.Key) ?? i.Value.Key;
 
                     packetIdText += "\n";
-                    packetIdText += "       " + realName + " = " + i.Value.Value + ", //slotid: " + i.Key;
+                    string className = GetPacketNameClass(realName);
+                    if(className != null)
+                        packetIdText += "       /// <summary>" + className + ".as</summary>\n";
+                    packetIdText += "       " + realName + " = " + i.Value.Value + ",";
                 }
                 packetIdText = packetIdText.Remove(packetIdText.LastIndexOf(','), 1);
                 packetIdText +=

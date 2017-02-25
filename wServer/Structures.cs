@@ -9,6 +9,9 @@ using wServer.realm;
 
 namespace wServer
 {
+    /// <summary>
+    /// Pic.as
+    /// </summary>
     public struct BitmapData
     {
         public int Width { get; set; }
@@ -20,7 +23,7 @@ namespace wServer
             BitmapData ret = new BitmapData();
             ret.Width = rdr.ReadInt32();
             ret.Height = rdr.ReadInt32();
-            ret.Bytes = new byte[ret.Width*ret.Height*4];
+            ret.Bytes = new byte[ret.Width * ret.Height * 4];
             ret.Bytes = rdr.ReadBytes(ret.Bytes.Length);
             return ret;
         }
@@ -58,6 +61,9 @@ namespace wServer
         }
     }
 
+    /// <summary>
+    /// TradeItem.as
+    /// </summary>
     public struct TradeItem
     {
         public bool Included;
@@ -86,6 +92,7 @@ namespace wServer
 
     public enum EffectType
     {
+        Unknown = 0,
         Potion = 1,
         Teleport = 2,
         Stream = 3,
@@ -107,12 +114,15 @@ namespace wServer
         SavageEffect = 19 //If a pet is standing still (this white particles)
     }
 
+    /// <summary>
+    /// ShowEffect.as
+    /// </summary>
     public struct ARGB
     {
         public byte A;
-        public byte B;
-        public byte G;
         public byte R;
+        public byte G;
+        public byte B;
 
         public ARGB(uint argb)
         {
@@ -141,6 +151,9 @@ namespace wServer
         }
     }
 
+    /// <summary>
+    /// SlotObjectData.as
+    /// </summary>
     public struct ObjectSlot
     {
         public int ObjectId;
@@ -169,6 +182,9 @@ namespace wServer
         }
     }
 
+    /// <summary>
+    /// MoveRecord.as
+    /// </summary>
     public struct TimedPosition
     {
         public Position Position;
@@ -194,6 +210,9 @@ namespace wServer
         }
     }
 
+    /// <summary>
+    /// WorldPosData.as
+    /// </summary>
     public struct Position
     {
         public float X;
@@ -225,6 +244,9 @@ namespace wServer
         }
     }
 
+    /// <summary>
+    /// ObjectData.as
+    /// </summary>
     public struct ObjectDef
     {
         public ushort ObjectType;
@@ -245,6 +267,35 @@ namespace wServer
         }
     }
 
+    /// <summary>
+    /// GroundTileData.as
+    /// </summary>
+    public struct TileData
+    {
+        public short X;
+        public short Y;
+        public int Tile;
+
+        public static TileData Read(Client psr, NReader rdr)
+        {
+            TileData ret = new TileData();
+            ret.X = rdr.ReadInt16();
+            ret.Y = rdr.ReadInt16();
+            ret.Tile = rdr.ReadUInt16();
+            return ret;
+        }
+
+        public void Write(Client psr, NWriter wtr)
+        {
+            wtr.Write(X);
+            wtr.Write(Y);
+            wtr.Write((ushort)Tile);
+        }
+    }
+
+    /// <summary>
+    /// ObjectStatusData.as
+    /// </summary>
     public struct ObjectStats
     {
         public int Id;
@@ -260,7 +311,7 @@ namespace wServer
             for (int i = 0; i < ret.Stats.Length; i++)
             {
                 StatsType type = (StatsType) rdr.ReadByte();
-                if (type == StatsType.Guild || type == StatsType.Name)
+                if (type.IsUTF())
                     ret.Stats[i] = new KeyValuePair<StatsType, object>(type, rdr.ReadUTF());
                 else
                     ret.Stats[i] = new KeyValuePair<StatsType, object>(type, rdr.ReadInt32());

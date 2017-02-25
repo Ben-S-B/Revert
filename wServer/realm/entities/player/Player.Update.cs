@@ -128,7 +128,7 @@ namespace wServer.realm.entities.player
 
             var sendEntities = new HashSet<Entity>(GetNewEntities());
 
-            var list = new List<UpdatePacket.TileData>(APPOX_AREA_OF_SIGHT);
+            var list = new List<TileData>(APPOX_AREA_OF_SIGHT);
             var sent = 0;
             foreach (var i in Sight.GetSightCircle(SIGHTRADIUS))
             {
@@ -146,7 +146,7 @@ namespace wServer.realm.entities.player
                     //Todo add blocksight
                 }
 
-                list.Add(new UpdatePacket.TileData()
+                list.Add(new TileData()
                 {
                     X = (short)x,
                     Y = (short)y,

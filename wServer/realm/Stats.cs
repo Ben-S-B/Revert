@@ -199,6 +199,7 @@ namespace wServer.realm
             if (!(obj is StatsType)) return false;
             return this == (StatsType)obj;
         }
+
         public override string ToString()
         {
             return _type.ToString();

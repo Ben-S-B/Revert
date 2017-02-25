@@ -107,7 +107,7 @@ namespace wServer.realm.entities
 
             this.Owner.Players.ToArray()[0].Value.Client.SendPacket(new UpdatePacket
             {
-                Tiles = new UpdatePacket.TileData[0],
+                Tiles = new TileData[0],
                 NewObjects = new ObjectDef[1] { this.ToDefinition() },
                 RemovedObjectIds = new int[0]
             });
@@ -270,7 +270,7 @@ namespace wServer.realm.entities
                 });
                 player.Client.SendPacket(new UpdatePacket
                 {
-                    Tiles = new UpdatePacket.TileData[0],
+                    Tiles = new TileData[0],
                     NewObjects = new ObjectDef[1] { pet.ToDefinition() },
                     RemovedObjectIds = new int[0]
                 });

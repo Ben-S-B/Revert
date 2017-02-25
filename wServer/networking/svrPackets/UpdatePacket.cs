@@ -22,14 +22,7 @@ namespace wServer.networking.svrPackets
         {
             Tiles = new TileData[rdr.ReadInt16()];
             for (int i = 0; i < Tiles.Length; i++)
-            {
-                Tiles[i] = new TileData
-                {
-                    X = rdr.ReadInt16(),
-                    Y = rdr.ReadInt16(),
-                    Tile = rdr.ReadUInt16()
-                };
-            }
+                Tiles[i] = TileData.Read(psr, rdr);
 
             NewObjects = new ObjectDef[rdr.ReadInt16()];
             for (int i = 0; i < NewObjects.Length; i++)
@@ -44,11 +37,8 @@ namespace wServer.networking.svrPackets
         {
             wtr.Write((short) Tiles.Length);
             foreach (TileData i in Tiles)
-            {
-                wtr.Write(i.X);
-                wtr.Write(i.Y);
-                wtr.Write((short) i.Tile);
-            }
+                i.Write(psr, wtr);
+
             wtr.Write((short) NewObjects.Length);
             foreach (ObjectDef i in NewObjects)
                 i.Write(psr, wtr);
@@ -56,13 +46,6 @@ namespace wServer.networking.svrPackets
             wtr.Write((short) RemovedObjectIds.Length);
             foreach (int i in RemovedObjectIds)
                 wtr.Write(i);
-        }
-
-        public struct TileData
-        {
-            public int Tile;
-            public short X;
-            public short Y;
         }
     }
 }
