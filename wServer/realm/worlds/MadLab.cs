@@ -5,7 +5,7 @@
         public MadLab()
         {
             Name = "Mad Lab";
-            ClientWorldName = "dungeons.Mad_Lab";
+            ClientWorldName = "{dungeons.Mad_Lab}";
             Background = 0;
             Difficulty = 5;
             AllowTeleport = true;

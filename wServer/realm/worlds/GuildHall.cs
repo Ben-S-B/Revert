@@ -13,6 +13,7 @@ namespace wServer.realm.worlds
             Id = GUILD_ID;
             Guild = guild;
             Name = "Guild Hall";
+            ClientWorldName = "{nexus.Guild_Hall}"; //TODO: properly implement _2, _3, _4
             Background = 0;
             AllowTeleport = true;
         }

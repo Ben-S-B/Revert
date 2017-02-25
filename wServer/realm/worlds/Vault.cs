@@ -26,7 +26,7 @@ namespace wServer.realm.worlds
         {
             Id = VAULT_ID;
             Name = "Vault";
-            ClientWorldName = "server.Vault";
+            ClientWorldName = "{server.vault}";
             Background = 2;
             this.psr = psr;
             this.isLimbo = isLimbo;

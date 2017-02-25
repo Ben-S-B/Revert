@@ -11,7 +11,7 @@ namespace wServer.realm.worlds
         public WineCellar()
         {
             Name = "Wine Cellar";
-            ClientWorldName = "server.wine_cellar";
+            ClientWorldName = "{server.wine_cellar}";
             Background = 0;
             AllowTeleport = false;
             Dungeon = true;
