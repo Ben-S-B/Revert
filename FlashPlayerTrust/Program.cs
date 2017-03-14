@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
@@ -21,7 +21,7 @@ namespace FlashPlayerTrust
                     Encoding.UTF8);
                 MessageBox.Show("Success!");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
