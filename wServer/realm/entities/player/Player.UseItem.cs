@@ -1173,6 +1173,14 @@ namespace wServer.realm.entities.player
                             PosB = new Position(target.X - range, target.Y) //Its the range of the diffuse effect
                         }, p => this.DistSqr(p) < 25);
                         break;
+                    case ActivateEffects.DazeBlast:
+                    case ActivateEffects.ClearConditionEffectAura:
+                    case ActivateEffects.ClearConditionEffectSelf:
+                    case ActivateEffects.PetSkin:
+                    case ActivateEffects.Unlock:
+                    case ActivateEffects.Exchange:
+                    case ActivateEffects.MysteryDyes:
+                        throw new NotImplementedException();
                 }
             }
             UpdateCount++;

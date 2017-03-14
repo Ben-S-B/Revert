@@ -272,6 +272,7 @@
     <Compile Include="networking\cliPackets\ChangeTradePacket.cs" />
     <Compile Include="networking\cliPackets\CheckCreditsPacket.cs" />
     <Compile Include="networking\cliPackets\ChooseNamePacket.cs" />
+    <Compile Include="networking\cliPackets\ClaimDailyRewardRequestPacket.cs" />
     <Compile Include="networking\cliPackets\ClientPacket.cs" />
     <Compile Include="networking\cliPackets\CreateGuildPacket.cs" />
     <Compile Include="networking\cliPackets\CreatePacket.cs" />
@@ -281,6 +282,7 @@
     <Compile Include="networking\cliPackets\EscapePacket.cs" />
     <Compile Include="networking\cliPackets\FailurePacket.cs" />
     <Compile Include="networking\cliPackets\GotoAckPacket.cs" />
+    <Compile Include="networking\cliPackets\GoToQuestRoomPacket.cs" />
     <Compile Include="networking\cliPackets\GroundDamagePacket.cs" />
     <Compile Include="networking\cliPackets\GuildInvitePacket.cs" />
     <Compile Include="networking\cliPackets\GuildRemovePacket.cs" />
@@ -316,6 +318,7 @@
     <Compile Include="networking\handlers\ChangeGuildRankPacketHandler.cs" />
     <Compile Include="networking\handlers\CheckCreditsHandler.cs" />
     <Compile Include="networking\handlers\ChooseNameHandler.cs" />
+    <Compile Include="networking\handlers\ClaimDailyRewardRequestHandler.cs" />
     <Compile Include="networking\handlers\CreateGuildHandler.cs" />
     <Compile Include="networking\handlers\CreateHandler.cs" />
     <Compile Include="networking\handlers\EditAccountListHandler.cs" />
@@ -323,6 +326,7 @@
     <Compile Include="networking\handlers\EscapeHander.cs" />
     <Compile Include="networking\handlers\FailureHandler.cs" />
     <Compile Include="networking\handlers\GotoAckHandler.cs" />
+    <Compile Include="networking\handlers\GoToQuestRoomHandler.cs" />
     <Compile Include="networking\handlers\GroundDamageHandler.cs" />
     <Compile Include="networking\handlers\GuildInvitePacketHandler.cs" />
     <Compile Include="networking\handlers\GuildRemovePacketHandler.cs" />
@@ -358,6 +362,7 @@
     <Compile Include="networking\NetworkHandler.cs" />
     <Compile Include="networking\svrPackets\ArenaDeathPacket.cs" />
     <Compile Include="networking\svrPackets\ArenaNextWavePacket.cs" />
+    <Compile Include="networking\svrPackets\ClaimDailyRewardResponsePacket.cs" />
     <Compile Include="networking\svrPackets\KeyInfoResponsePacket.cs" />
     <Compile Include="networking\svrPackets\PasswordPromtPacket.cs" />
     <Compile Include="networking\svrPackets\QuestFetchResponsePacket.cs" />

@@ -163,6 +163,7 @@
     <Compile Include="credits\getoffers.cs" />
     <Compile Include="credits\kabamadd.cs" />
     <Compile Include="crossdomain.cs" />
+    <Compile Include="dailyLogin\fetchCalendar.cs" />
     <Compile Include="fame\list.cs" />
     <Compile Include="friends\acceptRequest.cs" />
     <Compile Include="friends\getList.cs" />

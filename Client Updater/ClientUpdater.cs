@@ -61,6 +61,7 @@ namespace Client_Updater
                 case "CHANGETRADE": return "ChangeTrade";
                 case "CHECKCREDITS": return "CheckCredits";
                 case "CHOOSENAME": return "ChooseName";
+                case "CLAIM_LOGIN_REWARD_MSG": return "ClaimDailyRewardMessage";
                 case "CLIENTSTAT": return "ClientStat";
                 case "CREATE": return "Create";
                 case "CREATE_SUCCESS": return "CreateSuccess";
@@ -94,6 +95,7 @@ namespace Client_Updater
                 case "KEY_INFO_REQUEST": return "KeyInfoRequest";
                 case "KEY_INFO_RESPONSE": return "KeyInfoResponse";
                 case "LOAD": return "Load";
+                case "LOGIN_REWARD_MSG": return "ClaimDailyRewardResponse";
                 case "MAPINFO": return "MapInfo";
                 case "MOVE": return "Move";
                 case "NAMERESULT": return "NameResult";
@@ -116,6 +118,7 @@ namespace Client_Updater
                 case "QUEST_FETCH_RESPONSE": return "QuestFetchResponse";
                 case "QUEST_REDEEM": return "QuestRedeem";
                 case "QUEST_REDEEM_RESPONSE": return "QuestRedeemResponse";
+                case "QUEST_ROOM_MSG": return "GoToQuestRoom";
                 case "QUESTOBJID": return "QuestObjId";
                 case "RECONNECT": return "Reconnect";
                 case "REQUESTTRADE": return "RequestTrade";
@@ -239,6 +242,9 @@ namespace Client_Updater
                 case 91: return "PET_CHANGE_FORM_MSG";
                 case 92: return "KEY_INFO_REQUEST";
                 case 93: return "KEY_INFO_RESPONSE";
+                case 94: return "CLAIM_LOGIN_REWARD_MSG";
+                case 95: return "LOGIN_REWARD_MSG";
+                case 96: return "QUEST_ROOM_MSG";
             }
             return null;
         }
@@ -288,8 +294,8 @@ namespace wServer
                     packetIdText += "\n";
                     string className = GetPacketNameClass(realName);
                     if(className != null)
-                        packetIdText += "       /// <summary>" + className + ".as</summary>\n";
-                    packetIdText += "       " + realName + " = " + i.Value.Value + ",";
+                        packetIdText += "        /// <summary>" + className + ".as</summary>\n";
+                    packetIdText += "        " + realName + " = " + i.Value.Value + ",";
                 }
                 packetIdText = packetIdText.Remove(packetIdText.LastIndexOf(','), 1);
                 packetIdText +=

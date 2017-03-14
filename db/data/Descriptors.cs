@@ -166,7 +166,8 @@ public class PetStruct
             FirstAbility = (Ability)Enum.Parse(typeof(Ability), elem.Element("FirstAbility").Value.Replace(" ", String.Empty));
         DefaultSkin = elem.Element("DefaultSkin").Value;
         Size = int.Parse(elem.Element("Size").Value);
-        DisplayId = elem.Element("DisplayId").Value;
+        var displayId = elem.Element("DisplayId");
+        DisplayId = displayId != null ? displayId.Value : ObjectId;
     }
 
     public string ObjectId { get; private set; }
@@ -321,7 +322,8 @@ public enum ActivateEffects
     GenericActivate,
     PetSkin,
     Unlock,
-    Exchange
+    Exchange,
+    MysteryDyes
 }
 
 public class ActivateEffect
@@ -330,6 +332,7 @@ public class ActivateEffect
     {
         CultureInfo ci = (CultureInfo) CultureInfo.CurrentCulture.Clone();
         ci.NumberFormat.CurrencyDecimalSeparator = ".";
+
         Effect = (ActivateEffects) Enum.Parse(typeof (ActivateEffects), elem.Value);
         if (elem.Attribute("stat") != null)
             Stats = Utils.FromString(elem.Attribute("stat").Value);

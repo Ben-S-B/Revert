@@ -188,6 +188,12 @@ namespace wServer
         /// <summary>KeyInfoRequest.as</summary>
         KEY_INFO_REQUEST = 59,
         /// <summary>KeyInfoResponse.as</summary>
-        KEY_INFO_RESPONSE = 97
+        KEY_INFO_RESPONSE = 97,
+        /// <summary>ClaimDailyRewardMessage.as</summary>
+        CLAIM_LOGIN_REWARD_MSG = 102,
+        /// <summary>ClaimDailyRewardResponse.as</summary>
+        LOGIN_REWARD_MSG = 103,
+        /// <summary>GoToQuestRoom.as</summary>
+        QUEST_ROOM_MSG = 104
     }
 }
