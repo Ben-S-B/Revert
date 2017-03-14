@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DungeonGen", "DungeonGen\Du
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BehaviorConverter", "BehaviorConverter\BehaviorConverter.csproj", "{77033C19-33A8-4A3D-B840-EE77E5B94452}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlashPlayerTrust", "FlashPlayerTrust\FlashPlayerTrust.csproj", "{864343CF-380E-4C70-9286-774C007CA507}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -170,6 +172,22 @@ Global
 		{77033C19-33A8-4A3D-B840-EE77E5B94452}.Release|x64.Build.0 = Release|Any CPU
 		{77033C19-33A8-4A3D-B840-EE77E5B94452}.Release|x86.ActiveCfg = Release|Any CPU
 		{77033C19-33A8-4A3D-B840-EE77E5B94452}.Release|x86.Build.0 = Release|Any CPU
+		{864343CF-380E-4C70-9286-774C007CA507}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{864343CF-380E-4C70-9286-774C007CA507}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{864343CF-380E-4C70-9286-774C007CA507}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{864343CF-380E-4C70-9286-774C007CA507}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{864343CF-380E-4C70-9286-774C007CA507}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{864343CF-380E-4C70-9286-774C007CA507}.Debug|x64.Build.0 = Debug|Any CPU
+		{864343CF-380E-4C70-9286-774C007CA507}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{864343CF-380E-4C70-9286-774C007CA507}.Debug|x86.Build.0 = Debug|Any CPU
+		{864343CF-380E-4C70-9286-774C007CA507}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{864343CF-380E-4C70-9286-774C007CA507}.Release|Any CPU.Build.0 = Release|Any CPU
+		{864343CF-380E-4C70-9286-774C007CA507}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{864343CF-380E-4C70-9286-774C007CA507}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{864343CF-380E-4C70-9286-774C007CA507}.Release|x64.ActiveCfg = Release|Any CPU
+		{864343CF-380E-4C70-9286-774C007CA507}.Release|x64.Build.0 = Release|Any CPU
+		{864343CF-380E-4C70-9286-774C007CA507}.Release|x86.ActiveCfg = Release|Any CPU
+		{864343CF-380E-4C70-9286-774C007CA507}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
