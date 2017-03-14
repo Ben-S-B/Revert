@@ -12,7 +12,7 @@ This is a private server for [Realm of the Mad God](http://www.realmofthemadgod.
 2. Install [XAMPP](https://www.apachefriends.org) and configure a user/database called `rotmgprod` and import `db\rotmgprod.sql` to get the right tables. **Do not allow outside connections if you don't set a password!**
 3. Add the following line to `%systemroot%\System32\drivers\etc\hosts` on the server: `127.0.0.1 c453.pw`
 4. Add firewall/port forwarding rules for ports 80 and 2050
-5. Start `bin\Release\server.exe` as Administrator (required for access to port 80)
+5. Start `bin\Release\server.exe` as Administrator (required for access to port 80). Make sure to uncheck `Use port 80 and 443 for additional incoming connections` in Skype.
 6. Start `bin\Release\wServer.exe`
 7. Visit http://c453.pw in your browser to play.
 
