@@ -2,7 +2,7 @@
 
 ## What is this?
 
-This is a private server for [Realm of the Mad God](http://www.realmofthemadgod.com) forked from [here](https://github.com/ossimc82/fabiano-swagger-of-doom). It is mostly a cleanup of the original source and the focus lies on getting a server running as quickly and easily as possible.
+This is a private server for [Realm of the Mad God](http://www.realmofthemadgod.com) forked from [here](https://github.com/ossimc82/fabiano-swagger-of-doom) (fabiano-swagger-of-doom by ossimc82). It is mostly a cleanup of the original source and the focus lies on getting a server running as quickly and easily as possible.
 
 ## How to run this on my own server?
 
