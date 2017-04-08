@@ -29,6 +29,13 @@ namespace Client_Updater
             }
         }
 
+        private static class CurrentMillis
+        {
+            private static readonly DateTime Jan1St1970 = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            /// <summary>Get extra long current timestamp</summary>
+            public static long Millis { get { return (long)((DateTime.UtcNow - Jan1St1970).TotalMilliseconds); } }
+        }
+
         private void runUpdater(string ip)
         {
             if (checkBoxDownloadClient.Checked)
@@ -37,7 +44,7 @@ namespace Client_Updater
                 labelStatus.Update();
                 using (var webCli = new WebClient())
                 {
-                    var clientVersion = Encoding.UTF8.GetString(webCli.DownloadData("https://realmofthemadgodhrd.appspot.com/version.txt"));
+                    var clientVersion = Encoding.UTF8.GetString(webCli.DownloadData($"http://www.realmofthemadgod.com/version.txt?time={CurrentMillis.Millis}"));
                     webCli.DownloadFile($"https://realmofthemadgodhrd.appspot.com/AssembleeGameClient{clientVersion}.swf", "client.swf");
                 }
                 getLanguage("de");
