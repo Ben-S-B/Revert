@@ -289,7 +289,7 @@ namespace wServer
 
                 foreach (var i in PacketIdCollection)
                 {
-                    string realName = GetPacketIdName(i.Key) ?? i.Value.Key;
+                    string realName = i.Value.Key;// GetPacketIdName(i.Key) ?? i.Value.Key;
 
                     packetIdText += "\n";
                     string className = GetPacketNameClass(realName);
